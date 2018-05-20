@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b0c8f5eae82c2f45d4dc1987f48ef8ec",
+    "content-hash": "1374105cdd201dda48ef5c78c7413049",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -325,16 +325,16 @@
         },
         {
             "name": "mnapoli/bref",
-            "version": "0.2.5",
+            "version": "0.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mnapoli/bref.git",
-                "reference": "6f1d95563f46f84b796fb2c5dfe5b6e203fc3c6d"
+                "reference": "b8ccef67efb7cf9e3580a16cecf37007938fdf05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mnapoli/bref/zipball/6f1d95563f46f84b796fb2c5dfe5b6e203fc3c6d",
-                "reference": "6f1d95563f46f84b796fb2c5dfe5b6e203fc3c6d",
+                "url": "https://api.github.com/repos/mnapoli/bref/zipball/b8ccef67efb7cf9e3580a16cecf37007938fdf05",
+                "reference": "b8ccef67efb7cf9e3580a16cecf37007938fdf05",
                 "shasum": ""
             },
             "require": {
@@ -373,7 +373,7 @@
             "license": [
                 "MIT"
             ],
-            "time": "2018-05-14T07:55:27+00:00"
+            "time": "2018-05-20T19:17:13+00:00"
         },
         {
             "name": "mnapoli/silly",
