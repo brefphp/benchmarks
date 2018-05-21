@@ -2,7 +2,7 @@ Benchmark for Bref and AWS Lambda.
 
 ## Results
 
-This is a comparison of the response time from an EC2 machine in the same region, on both a NodeJS lambda (`node.js`) and a PHP lambda (`bref.php`).
+This is a comparison of the HTTP response time from an EC2 machine in the same region, on both a NodeJS lambda (`node.js`) and a PHP lambda (`bref.php`). This is not the lambda's execution time but the real HTTP response time.
 
 I run the test 3 times for each combination and I keep the lowest one. When in doubt I run a 4th or 5th measurement.
 
@@ -13,6 +13,22 @@ I run the test 3 times for each combination and I keep the lowest one. When in d
 | 1024M  |        20ms |       46ms |
 | 2048M  |        21ms |       42ms |
 | 3008M  |        21ms |       46ms |
+
+![](graph.png)
+
+We can see that Node performances are pretty consistent, whereas PHP performances become optimal above 1024M. Performances with 512M can be acceptable depending on the use case (e.g. workers, crons, etc.). 128M performances are pretty poor.
+
+**To sum up, we should expect a 20ms penalty to using PHP over AWS Lambda compared to other languages.**
+
+What's interesting to note is that Node's 21ms base response time is because of the HTTP layer (API Gateway and network). Let's consider this other graph (Cloudwatch metrics):
+
+![](cloudwatch.png)
+
+- blue line: HTTP response time (~40ms for PHP, 13ms for Node)
+- green line: PHP execution time (25ms)
+- orange line: Node execution time (0ms)
+
+This confirms that PHP adds 20ms-25ms to the lambda's execution time. The HTTP layer (API Gateway) adds ~15ms in all cases. The network between the lambdas and the EC2 machine used for the tests accounts for ~5ms.
 
 ## Reproducing
 
