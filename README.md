@@ -1,4 +1,4 @@
-Benchmark for Bref and AWS Lambda.
+Benchmark for [Bref](https://github.com/mnapoli/bref) and AWS Lambda.
 
 ## Results
 
@@ -10,6 +10,7 @@ I run the test 3 times for each combination and I keep the lowest one. When in d
 |--------|-------------|------------|
 | 128M   |        28ms |      340ms |
 | 512M   |        28ms |       86ms |
+| 768M   |        21ms |       59ms |
 | 1024M  |        20ms |       46ms |
 | 2048M  |        21ms |       42ms |
 | 3008M  |        21ms |       46ms |
