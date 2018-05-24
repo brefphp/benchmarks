@@ -33,20 +33,18 @@ This confirms that PHP adds 20ms-25ms to the lambda's execution time. The HTTP l
 
 ## Cold starts
 
-| Memory | Node lambda | PHP lambda |
-|--------|-------------|------------|
-| 128M   |        21ms |     1261ms |
-| 512M   |         3ms |      336ms |
-| 768M   |         2ms |      231ms |
-| 1024M  |         2ms |      210ms |
+Here are measurements made on Node and PHP lambdas, completed with [cold starts from other languages found in this comprehensive article](https://read.acloud.guru/does-coding-language-memory-or-package-size-affect-cold-starts-of-aws-lambda-a15e26d12c76).
+
+| Memory | Python | Node | PHP    | Java   | C#     |
+|--------|--------|------|--------|--------|--------|
+| 128M   |    1ms | 21ms | 1261ms | 3562ms | 4387ms |
+| 512M   |    0ms |  3ms |  336ms |  999ms | 1223ms |
+| 768M   |        |  2ms |  231ms |        |        |
+| 1024M  |    0ms |  2ms |  210ms |  530ms |  524ms |
 
 ![](coldstarts.png)
 
-For comparison here are [other languages cold starts](https://read.acloud.guru/does-coding-language-memory-or-package-size-affect-cold-starts-of-aws-lambda-a15e26d12c76):
-
-[![](coldstarts-other-languages.png)](https://read.acloud.guru/does-coding-language-memory-or-package-size-affect-cold-starts-of-aws-lambda-a15e26d12c76)
-
-**PHP's cold start is lower than Java and C#** even though both those languages are supported natively by AWS Lambda.
+**PHP's cold start is lower than Java and C#** even though both those languages are supported natively by AWS Lambda. From 768M and up the cold starts stabilize around 230ms.
 
 ## Reproducing
 
