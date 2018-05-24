@@ -1,5 +1,7 @@
 Benchmark for [Bref](https://github.com/mnapoli/bref) and AWS Lambda.
 
+Those are mostly raw results, you can find a more detailed analysis in [this blog post](http://mnapoli.fr/serverless-php-performances/).
+
 ## Results
 
 This is a comparison of the HTTP response time from an EC2 machine in the same region, on both a NodeJS lambda (`node.js`) and a PHP lambda (`bref.php`). This is not the lambda's execution time but the real HTTP response time.
