@@ -31,6 +31,23 @@ What's interesting to note is that Node's 21ms base response time is because of 
 
 This confirms that PHP adds 20ms-25ms to the lambda's execution time. The HTTP layer (API Gateway) adds ~15ms in all cases. The network between the lambdas and the EC2 machine used for the tests accounts for ~5ms.
 
+## Cold starts
+
+| Memory | Node lambda | PHP lambda |
+|--------|-------------|------------|
+| 128M   |        21ms |     1261ms |
+| 512M   |         3ms |      336ms |
+| 768M   |         2ms |      231ms |
+| 1024M  |         2ms |      210ms |
+
+![](coldstarts.png)
+
+For comparison here are [other languages cold starts](https://read.acloud.guru/does-coding-language-memory-or-package-size-affect-cold-starts-of-aws-lambda-a15e26d12c76):
+
+[![](coldstarts-other-languages.png)](https://read.acloud.guru/does-coding-language-memory-or-package-size-affect-cold-starts-of-aws-lambda-a15e26d12c76)
+
+**PHP's cold start is lower than Java and C#** even though both those languages are supported natively by AWS Lambda.
+
 ## Reproducing
 
 - clone the repository
