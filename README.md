@@ -1,22 +1,27 @@
 Benchmarks for [Bref](https://github.com/mnapoli/bref) running on AWS Lambda.
 
-## Minimum execution time
+## Scenarios
 
-Number of samples: 100
+- PHP function: a simple PHP function, see `php-function/index.php`
+- HTTP application: a simple PHP script that returns `Hello world`, see `http-application/index.php`
 
-|              | 128   | 512  | 1024 | 2048 |
-|--------------|-------|------|------|------|
-| PHP function | 150ms | 43ms | 20ms | 19ms |
-|              |       |      |      |      |
+## Average execution time
+
+Number of samples: 100-200
+
+|                  | 128   | 512  | 1024 | 2048 |
+|------------------|-------|------|------|------|
+| PHP function     | 130ms | 32ms | 20ms | 17ms |
+| HTTP application |  13ms |  5ms |  3ms |  2ms |
 
 ## Cold starts
 
-Number of samples: 10
+Number of samples: 20
 
-|              | 128   | 512   | 1024  | 2048  |
-|--------------|-------|-------|-------|-------|
-| PHP function | 860ms | 280ms | 250ms | 220ms |
-|              |       |       |       |       |
+|                  | 128   | 512   | 1024  | 2048  |
+|------------------|-------|-------|-------|-------|
+| PHP function     | 600ms | 280ms | 225ms | 215ms |
+| HTTP application | 500ms | 270ms | 270ms | 215ms |
 
 ## Reproducing
 

@@ -3,6 +3,5 @@
 require __DIR__.'/vendor/autoload.php';
 
 lambda(function () {
-
     return 'Hello world';
 });

@@ -1,0 +1,5 @@
+{
+    "require": {
+        "mnapoli/bref": "~0.3.4"
+    }
+}
