@@ -1,4 +1,6 @@
-/vendor/
+vendor/
 /composer.phar
-/composer.lock
-/.bref/
+/.stack.yaml
+/php-function/composer.lock
+/php-function-*/composer.json
+/php-function-*/composer.lock
