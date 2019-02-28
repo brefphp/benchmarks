@@ -1,5 +1,3 @@
 vendor/
-/composer.phar
+composer.phar
 /.stack.yaml
-/php-function/composer.lock
-/http-application/composer.lock

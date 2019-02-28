@@ -11,19 +11,16 @@ do
     aws lambda invoke --invocation-type Event --region us-east-2 --function-name bref-benchmark-php-function-128 /dev/null &
 done
 wait # Wait for all invocations to finish
-
 for value in {1..20}
 do
     aws lambda invoke --invocation-type Event --region us-east-2 --function-name bref-benchmark-php-function-512 /dev/null &
 done
 wait # Wait for all invocations to finish
-
 for value in {1..20}
 do
     aws lambda invoke --invocation-type Event --region us-east-2 --function-name bref-benchmark-php-function-1024 /dev/null &
 done
 wait # Wait for all invocations to finish
-
 for value in {1..20}
 do
     aws lambda invoke --invocation-type Event --region us-east-2 --function-name bref-benchmark-php-function-2048 /dev/null &
