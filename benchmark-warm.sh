@@ -12,7 +12,7 @@ do
     wait
 done
 
-# HTTP applications
+# HTTP application
 # Warmup (to avoid cold starts)
 ab -c 5 -n 5 https://v82j8g4a5k.execute-api.us-east-2.amazonaws.com/Prod/128
 ab -c 5 -n 5 https://v82j8g4a5k.execute-api.us-east-2.amazonaws.com/Prod/512
@@ -23,3 +23,15 @@ ab -c 5 -n 200 https://v82j8g4a5k.execute-api.us-east-2.amazonaws.com/Prod/128
 ab -c 5 -n 200 https://v82j8g4a5k.execute-api.us-east-2.amazonaws.com/Prod/512
 ab -c 5 -n 200 https://v82j8g4a5k.execute-api.us-east-2.amazonaws.com/Prod/1024
 ab -c 5 -n 200 https://v82j8g4a5k.execute-api.us-east-2.amazonaws.com/Prod/2048
+
+# Symfony
+# Warmup (to avoid cold starts)
+ab -c 5 -n 5 https://v82j8g4a5k.execute-api.us-east-2.amazonaws.com/Prod/symfony/128
+ab -c 5 -n 5 https://v82j8g4a5k.execute-api.us-east-2.amazonaws.com/Prod/symfony/512
+ab -c 5 -n 5 https://v82j8g4a5k.execute-api.us-east-2.amazonaws.com/Prod/symfony/1024
+ab -c 5 -n 5 https://v82j8g4a5k.execute-api.us-east-2.amazonaws.com/Prod/symfony/2048
+# Benchmark
+ab -c 5 -n 200 https://v82j8g4a5k.execute-api.us-east-2.amazonaws.com/Prod/symfony/128
+ab -c 5 -n 200 https://v82j8g4a5k.execute-api.us-east-2.amazonaws.com/Prod/symfony/512
+ab -c 5 -n 200 https://v82j8g4a5k.execute-api.us-east-2.amazonaws.com/Prod/symfony/1024
+ab -c 5 -n 200 https://v82j8g4a5k.execute-api.us-east-2.amazonaws.com/Prod/symfony/2048

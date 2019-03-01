@@ -7,7 +7,7 @@ Benchmarks for [Bref](https://github.com/mnapoli/bref) running on AWS Lambda.
 
 ## Minimum execution time
 
-This is a measurement of the minimum execution time for a lambda that doesn't do anything.
+Average execution time for a lambda that doesn't do anything.
 
 Number of samples: 100-200
 
@@ -15,6 +15,7 @@ Number of samples: 100-200
 |------------------|------:|-----:|-----:|-----:|
 | PHP function     | 130ms | 32ms | 20ms | 17ms |
 | HTTP application |  13ms |  5ms |  3ms |  2ms |
+| Symfony          |  56ms | 12ms |  6ms |  5ms |
 
 ## CPU performance
 
@@ -33,6 +34,10 @@ Number of samples: 20
 | PHP function     | 600ms | 280ms | 225ms | 215ms |
 | HTTP application | 500ms | 270ms | 270ms | 215ms |
 | Symfony          |  5.6s |  1.7s | 850ms | 550ms |
+
+Notes:
+
+- Symfony's cold start is high at the moment because we do not pre-generate the cache before deploying (it is generated on the first hit). This is an optimization that is planned.
 
 ## Reproducing
 
