@@ -32,6 +32,7 @@ Number of samples: 20
 |------------------|------:|------:|------:|------:|
 | PHP function     | 600ms | 280ms | 225ms | 215ms |
 | HTTP application | 500ms | 270ms | 270ms | 215ms |
+| Symfony          |  5.6s |  1.7s | 850ms | 550ms |
 
 ## Reproducing
 

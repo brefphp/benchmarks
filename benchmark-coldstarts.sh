@@ -27,8 +27,14 @@ do
 done
 wait # Wait for all invocations to finish
 
-# HTTP applications
+# HTTP application
 ab -c 20 -n 20 https://v82j8g4a5k.execute-api.us-east-2.amazonaws.com/Prod/128
 ab -c 20 -n 20 https://v82j8g4a5k.execute-api.us-east-2.amazonaws.com/Prod/512
 ab -c 20 -n 20 https://v82j8g4a5k.execute-api.us-east-2.amazonaws.com/Prod/1024
 ab -c 20 -n 20 https://v82j8g4a5k.execute-api.us-east-2.amazonaws.com/Prod/2048
+
+# Symfony
+ab -c 20 -n 20 https://v82j8g4a5k.execute-api.us-east-2.amazonaws.com/Prod/symfony/128
+ab -c 20 -n 20 https://v82j8g4a5k.execute-api.us-east-2.amazonaws.com/Prod/symfony/512
+ab -c 20 -n 20 https://v82j8g4a5k.execute-api.us-east-2.amazonaws.com/Prod/symfony/1024
+ab -c 20 -n 20 https://v82j8g4a5k.execute-api.us-east-2.amazonaws.com/Prod/symfony/2048

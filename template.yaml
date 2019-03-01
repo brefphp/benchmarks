@@ -166,3 +166,76 @@ Resources:
             Runtime: provided
             Layers:
                 - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73:2'
+
+    Symfony128:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: 'bref-benchmark-symfony-128'
+            Description: 'Bref benchmarks'
+            CodeUri: symfony
+            Handler: index.php
+            MemorySize: 128
+            Timeout: 30 # in seconds
+            Runtime: provided
+            Layers:
+                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73-fpm:2'
+            Events:
+                HttpRoot:
+                    Type: Api
+                    Properties:
+                        Path: /symfony/128
+                        Method: ANY
+    Symfony512:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: 'bref-benchmark-symfony-512'
+            Description: 'Bref benchmarks'
+            CodeUri: symfony
+            Handler: index.php
+            MemorySize: 512
+            Timeout: 30 # in seconds
+            Runtime: provided
+            Layers:
+                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73-fpm:2'
+            Events:
+                HttpRoot:
+                    Type: Api
+                    Properties:
+                        Path: /symfony/512
+                        Method: ANY
+    Symfony1024:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: 'bref-benchmark-symfony-1024'
+            Description: 'Bref benchmarks'
+            CodeUri: symfony
+            Handler: index.php
+            MemorySize: 1024
+            Timeout: 30 # in seconds
+            Runtime: provided
+            Layers:
+                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73-fpm:2'
+            Events:
+                HttpRoot:
+                    Type: Api
+                    Properties:
+                        Path: /symfony/1024
+                        Method: ANY
+    Symfony2048:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: 'bref-benchmark-symfony-2048'
+            Description: 'Bref benchmarks'
+            CodeUri: symfony
+            Handler: index.php
+            MemorySize: 2048
+            Timeout: 30 # in seconds
+            Runtime: provided
+            Layers:
+                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73-fpm:2'
+            Events:
+                HttpRoot:
+                    Type: Api
+                    Properties:
+                        Path: /symfony/2048
+                        Method: ANY
