@@ -17,6 +17,8 @@ Number of samples: 100-200
 | HTTP application |  13ms |  5ms |  3ms |  2ms |
 | Symfony          |  56ms | 12ms |  6ms |  5ms |
 
+For comparison on a 512M Digital Ocean droplet we get 1ms for "HTTP application" and 6ms for Symfony.
+
 ## CPU performance
 
 The more RAM, the more CPU power is allocated to the lambda. This is clearly visible when running [PHP's official `bench.php` script](https://github.com/php/php-src/blob/master/Zend/bench.php).
