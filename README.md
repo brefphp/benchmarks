@@ -25,6 +25,8 @@ The more RAM, the more CPU power is allocated to the lambda. This is clearly vis
 |------------------|------:|-----:|-----:|-----:|
 | `bench.php`      |    6s | 1.8s | 0.8s | 0.4s |
 
+For comparison on a 512M Digital Ocean droplet `bench.php` runs in 1.3s. On a i7 2.8Ghz Macbook Pro it runs in 0.8s.
+
 ## Cold starts
 
 Number of samples: 20
