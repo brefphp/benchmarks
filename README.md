@@ -5,7 +5,7 @@ Benchmarks for [Bref](https://github.com/mnapoli/bref) running on AWS Lambda.
 - PHP function: a simple PHP function, see `php-function/index.php`
 - HTTP application: a simple PHP script that returns `Hello world`, see `http-application/index.php`
 
-## Minimum execution time
+## Average (warm) execution time
 
 Average execution time for a lambda that doesn't do anything.
 
