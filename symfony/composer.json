@@ -4,7 +4,7 @@
         "ext-curl": "*",
         "ext-iconv": "*",
         "ext-json": "*",
-        "mnapoli/bref": "~0.3.4",
+        "mnapoli/bref": "~0.3.6",
         "symfony/dotenv": "*",
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "*",
