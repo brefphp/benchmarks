@@ -1,4 +1,4 @@
-Benchmarks for [Bref](https://github.com/mnapoli/bref) running on AWS Lambda.
+Benchmarks for [Bref](https://github.com/brefphp/bref) running on AWS Lambda.
 
 ## Scenarios
 
