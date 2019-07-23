@@ -1,5 +1,5 @@
 {
     "require": {
-        "mnapoli/bref": "~0.3.6"
+        "bref/bref": "0.5.0"
     }
 }

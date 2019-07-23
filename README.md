@@ -13,9 +13,9 @@ Number of samples: 100-200
 
 |                  | 128   | 512  | 1024 | 2048 |
 |------------------|------:|-----:|-----:|-----:|
-| PHP function     | 130ms | 32ms | 20ms | 17ms |
-| HTTP application |  13ms |  5ms |  3ms |  2ms |
-| Symfony          |  56ms | 12ms |  6ms |  5ms |
+| PHP function     | 210ms | 42ms | 18ms | 15ms |
+| HTTP application |  11ms |  3ms |  1ms |  1ms |
+| Symfony          | 115ms | 15ms |  7ms |  7ms |
 
 For comparison on a 512M Digital Ocean droplet we get 1ms for "HTTP application" and 6ms for Symfony.
 
@@ -25,7 +25,7 @@ The more RAM, the more CPU power is allocated to the lambda. This is clearly vis
 
 |                  | 128   | 512  | 1024 | 2048 |
 |------------------|------:|-----:|-----:|-----:|
-| `bench.php`      |    6s | 1.8s | 0.8s | 0.4s |
+| `bench.php`      |  6.4s | 1.6s | 0.73s | 0.37s |
 
 For comparison  `bench.php` runs in 1.3s on a 512M Digital Ocean droplet, in 0.8s on a 2.8Ghz i7 and in 0.6s on a 3.2Ghz i5.
 
