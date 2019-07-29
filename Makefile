@@ -13,8 +13,14 @@ deploy: setup
 bench-cold-starts:
 	./benchmark-coldstarts.sh
 
-bench-warm:
+bench-warm: bench-function bench-http
 	./benchmark-warm.sh
+
+bench-function:
+	./benchmark-function.sh
+
+bench-http:
+	./benchmark-http.sh
 
 bench-phpbench:
 	./benchmark-phpbench.sh
