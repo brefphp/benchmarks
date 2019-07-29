@@ -35,9 +35,9 @@ Number of samples: 20
 
 |                  | 128   | 512   | 1024  | 2048  |
 |------------------|------:|------:|------:|------:|
-| PHP function     | 600ms | 280ms | 225ms | 215ms |
-| HTTP application | 500ms | 270ms | 270ms | 215ms |
-| Symfony          |  5.6s |  1.7s | 850ms | 550ms |
+| PHP function     | 400ms | 240ms | 210ms | 205ms |
+| HTTP application | 300ms | 240ms | 240ms | 230ms |
+| Symfony          |  5.6s |  1.4s | 850ms | 550ms |
 
 Notes:
 
