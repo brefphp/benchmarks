@@ -9,13 +9,13 @@ Benchmarks for [Bref](https://github.com/brefphp/bref) running on AWS Lambda.
 
 Average execution time for a lambda that doesn't do anything.
 
-Number of samples: 100-200
+Number of samples: 900
 
 |                  | 128   | 512  | 1024 | 2048 |
 |------------------|------:|-----:|-----:|-----:|
-| PHP function     | 180ms | 36ms | 17ms | 14ms |
-| HTTP application |  11ms |  2ms |  1ms |  1ms |
-| Symfony          | 75ms | 7ms |  6ms |  5ms |
+| PHP function     | 175ms | 35ms | 16ms | 13ms |
+| HTTP application |  10ms |  1ms |  1ms |  1ms |
+| Symfony          |  58ms |  4ms |  4ms |  4ms |
 
 For comparison on a 512M Digital Ocean droplet we get 1ms for "HTTP application" and 6ms for Symfony.
 
@@ -25,7 +25,7 @@ The more RAM, the more CPU power is allocated to the lambda. This is clearly vis
 
 |                  | 128   | 512  | 1024 | 2048 |
 |------------------|------:|-----:|-----:|-----:|
-| `bench.php`      |  6.4s | 1.6s | 0.73s | 0.37s |
+| `bench.php`      |  5.7s | 1.4s | 0.65s | 0.33s |
 
 For comparison  `bench.php` runs in 1.3s on a 512M Digital Ocean droplet, in 0.8s on a 2.8Ghz i7 and in 0.6s on a 3.2Ghz i5.
 
@@ -35,9 +35,9 @@ Number of samples: 20
 
 |                  | 128   | 512   | 1024  | 2048  |
 |------------------|------:|------:|------:|------:|
-| PHP function     | 400ms | 240ms | 210ms | 205ms |
-| HTTP application | 300ms | 240ms | 240ms | 230ms |
-| Symfony          |  5.6s |  1.4s | 850ms | 550ms |
+| PHP function     | 500ms | 240ms | 230ms | 220ms |
+| HTTP application | 345ms | 250ms | 240ms | 240ms |
+| Symfony          |  5.4s |  1.4s | 800ms | 500ms |
 
 Notes:
 
