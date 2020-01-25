@@ -50,5 +50,5 @@ You will need [to install dependencies of Bref](https://bref.sh/docs/installatio
 - clone the repository
 - create a S3 bucket in `us-east-2` and change the bucket name in `Makefile` (replace it with yours)
 - `make deploy`
-- `make bench-coldstarts`
+- `make bench-cold-starts`
 - `make bench-warm`
