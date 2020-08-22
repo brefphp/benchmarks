@@ -1,34 +1,37 @@
 # Deploy all the lambdas
-deploy: setup
-	sam package \
-        --template-file template.yaml \
-        --output-template-file .stack.yaml \
-        --s3-bucket bref-benchmarks
-	sam deploy \
+deploy: build package
+	cd .aws-sam/build \
+	&& sam deploy \
         --template-file .stack.yaml \
         --stack-name bref-benchmarks \
         --capabilities CAPABILITY_IAM \
         --region us-east-2
+.PHONY: deploy
+
+build:
+	sam build --template-file template.yaml
+.PHONY: build
+
+package:
+	cd .aws-sam/build \
+	&& sam package \
+        --template-file template.yaml \
+        --output-template-file .stack.yaml \
+        --s3-bucket bref-benchmarks
+.PHONY: package
 
 bench-cold-starts:
 	./benchmark-coldstarts.sh
+.PHONY: bench-cold-stack
 
 bench-function:
 	./benchmark-function.sh
+.PHONY: bench-function
 
 bench-http:
 	./benchmark-http.sh
+.PHONY: bench-http
 
 bench-phpbench:
 	./benchmark-phpbench.sh
-
-# Set things up
-setup:
-	cd php-function && composer install --no-dev --classmap-authoritative
-	cd http-application && composer install --no-dev --classmap-authoritative
-	cd php-bench && composer install --no-dev --classmap-authoritative
-	cd symfony && composer install --no-dev --classmap-authoritative --no-scripts
-	rm -rf symfony/var/cache/*
-	cd symfony && php bin/console cache:clear --no-debug --env=prod
-
-.PHONY: setup
+.PHONY: bench-phpbench

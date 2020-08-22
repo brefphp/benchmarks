@@ -8,7 +8,9 @@ do
     aws lambda invoke --invocation-type RequestResponse --region us-east-2 --function-name bref-benchmark-php-function-128 /dev/null > /dev/null &
     aws lambda invoke --invocation-type RequestResponse --region us-east-2 --function-name bref-benchmark-php-function-512 /dev/null > /dev/null &
     aws lambda invoke --invocation-type RequestResponse --region us-east-2 --function-name bref-benchmark-php-function-1024 /dev/null > /dev/null &
+    aws lambda invoke --invocation-type RequestResponse --region us-east-2 --function-name bref-benchmark-php-function-1792 /dev/null > /dev/null &
     aws lambda invoke --invocation-type RequestResponse --region us-east-2 --function-name bref-benchmark-php-function-2048 /dev/null > /dev/null &
+    aws lambda invoke --invocation-type RequestResponse --region us-east-2 --function-name bref-benchmark-php-function-3000 /dev/null > /dev/null &
     wait
     sleep 1
 done
