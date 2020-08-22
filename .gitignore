@@ -1,3 +1,2 @@
-vendor/
+.aws-sam
 composer.phar
-/.stack.yaml

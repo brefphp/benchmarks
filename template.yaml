@@ -1,241 +1,405 @@
-AWSTemplateFormatVersion: '2010-09-09'
+AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
-Description: 'Bref benchmarks'
+Description: "Bref benchmarks"
 
 Resources:
+  PhpFunction128:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-php-function-128"
+      Description: "Bref benchmarks"
+      CodeUri: php-function
+      Handler: index.php
+      MemorySize: 128
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74:17"
+    Metadata:
+      BuildMethod: makefile
+  PhpFunction512:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-php-function-512"
+      Description: "Bref benchmarks"
+      CodeUri: php-function
+      Handler: index.php
+      MemorySize: 512
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74:17"
+    Metadata:
+      BuildMethod: makefile
+  PhpFunction1024:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-php-function-1024"
+      Description: "Bref benchmarks"
+      CodeUri: php-function
+      Handler: index.php
+      MemorySize: 1024
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74:17"
+    Metadata:
+      BuildMethod: makefile
+  PhpFunction1792:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-php-function-1792"
+      Description: "Bref benchmarks"
+      CodeUri: php-function
+      Handler: index.php
+      MemorySize: 1792
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74:17"
+    Metadata:
+      BuildMethod: makefile
+  PhpFunction2048:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-php-function-2048"
+      Description: "Bref benchmarks"
+      CodeUri: php-function
+      Handler: index.php
+      MemorySize: 2048
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74:17"
+    Metadata:
+      BuildMethod: makefile
+  PhpFunction3000:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-php-function-3000"
+      Description: "Bref benchmarks"
+      CodeUri: php-function
+      Handler: index.php
+      MemorySize: 3000
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74:17"
+    Metadata:
+      BuildMethod: makefile
 
-    PhpFunction128:
-        Type: AWS::Serverless::Function
-        Properties:
-            FunctionName: 'bref-benchmark-php-function-128'
-            Description: 'Bref benchmarks'
-            CodeUri: php-function
-            Handler: index.php
-            MemorySize: 128
-            Runtime: provided
-            Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73:8'
-    PhpFunction512:
-        Type: AWS::Serverless::Function
-        Properties:
-            FunctionName: 'bref-benchmark-php-function-512'
-            Description: 'Bref benchmarks'
-            CodeUri: php-function
-            Handler: index.php
-            MemorySize: 512
-            Runtime: provided
-            Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73:8'
-    PhpFunction1024:
-        Type: AWS::Serverless::Function
-        Properties:
-            FunctionName: 'bref-benchmark-php-function-1024'
-            Description: 'Bref benchmarks'
-            CodeUri: php-function
-            Handler: index.php
-            MemorySize: 1024
-            Runtime: provided
-            Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73:8'
-    PhpFunction2048:
-        Type: AWS::Serverless::Function
-        Properties:
-            FunctionName: 'bref-benchmark-php-function-2048'
-            Description: 'Bref benchmarks'
-            CodeUri: php-function
-            Handler: index.php
-            MemorySize: 2048
-            Runtime: provided
-            Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73:8'
+  HttpApplication128:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-http-application-128"
+      Description: "Bref benchmarks"
+      CodeUri: http-application
+      Handler: index.php
+      MemorySize: 128
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74-fpm:17"
+      Events:
+        HttpRoot:
+          Type: Api
+          Properties:
+            Path: /128
+            Method: ANY
+    Metadata:
+      BuildMethod: makefile
+  HttpApplication512:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-http-application-512"
+      Description: "Bref benchmarks"
+      CodeUri: http-application
+      Handler: index.php
+      MemorySize: 512
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74-fpm:17"
+      Events:
+        HttpRoot:
+          Type: Api
+          Properties:
+            Path: /512
+            Method: ANY
+    Metadata:
+      BuildMethod: makefile
+  HttpApplication1024:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-http-application-1024"
+      Description: "Bref benchmarks"
+      CodeUri: http-application
+      Handler: index.php
+      MemorySize: 1024
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74-fpm:17"
+      Events:
+        HttpRoot:
+          Type: Api
+          Properties:
+            Path: /1024
+            Method: ANY
+    Metadata:
+      BuildMethod: makefile
+  HttpApplication1792:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-http-application-1792"
+      Description: "Bref benchmarks"
+      CodeUri: http-application
+      Handler: index.php
+      MemorySize: 1792
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74-fpm:17"
+      Events:
+        HttpRoot:
+          Type: Api
+          Properties:
+            Path: /1792
+            Method: ANY
+    Metadata:
+      BuildMethod: makefile
+  HttpApplication2048:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-http-application-2048"
+      Description: "Bref benchmarks"
+      CodeUri: http-application
+      Handler: index.php
+      MemorySize: 2048
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74-fpm:17"
+      Events:
+        HttpRoot:
+          Type: Api
+          Properties:
+            Path: /2048
+            Method: ANY
+    Metadata:
+      BuildMethod: makefile
+  HttpApplication3000:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-http-application-3000"
+      Description: "Bref benchmarks"
+      CodeUri: http-application
+      Handler: index.php
+      MemorySize: 3000
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74-fpm:17"
+      Events:
+        HttpRoot:
+          Type: Api
+          Properties:
+            Path: /3000
+            Method: ANY
+    Metadata:
+      BuildMethod: makefile
 
-    HttpApplication128:
-        Type: AWS::Serverless::Function
-        Properties:
-            FunctionName: 'bref-benchmark-http-application-128'
-            Description: 'Bref benchmarks'
-            CodeUri: http-application
-            Handler: index.php
-            MemorySize: 128
-            Runtime: provided
-            Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73-fpm:8'
-            Events:
-                HttpRoot:
-                    Type: Api
-                    Properties:
-                        Path: /128
-                        Method: ANY
-    HttpApplication512:
-        Type: AWS::Serverless::Function
-        Properties:
-            FunctionName: 'bref-benchmark-http-application-512'
-            Description: 'Bref benchmarks'
-            CodeUri: http-application
-            Handler: index.php
-            MemorySize: 512
-            Runtime: provided
-            Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73-fpm:8'
-            Events:
-                HttpRoot:
-                    Type: Api
-                    Properties:
-                        Path: /512
-                        Method: ANY
-    HttpApplication1024:
-        Type: AWS::Serverless::Function
-        Properties:
-            FunctionName: 'bref-benchmark-http-application-1024'
-            Description: 'Bref benchmarks'
-            CodeUri: http-application
-            Handler: index.php
-            MemorySize: 1024
-            Runtime: provided
-            Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73-fpm:8'
-            Events:
-                HttpRoot:
-                    Type: Api
-                    Properties:
-                        Path: /1024
-                        Method: ANY
-    HttpApplication2048:
-        Type: AWS::Serverless::Function
-        Properties:
-            FunctionName: 'bref-benchmark-http-application-2048'
-            Description: 'Bref benchmarks'
-            CodeUri: http-application
-            Handler: index.php
-            MemorySize: 2048
-            Runtime: provided
-            Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73-fpm:8'
-            Events:
-                HttpRoot:
-                    Type: Api
-                    Properties:
-                        Path: /2048
-                        Method: ANY
+  PhpBench128:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-php-bench-128"
+      Description: "Bref benchmarks"
+      CodeUri: php-bench
+      Handler: index.php
+      MemorySize: 128
+      Timeout: 30 # in seconds
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74:17"
+    Metadata:
+      BuildMethod: makefile
+  PhpBench512:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-php-bench-512"
+      Description: "Bref benchmarks"
+      CodeUri: php-bench
+      Handler: index.php
+      MemorySize: 512
+      Timeout: 30 # in seconds
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74:17"
+    Metadata:
+      BuildMethod: makefile
+  PhpBench1024:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-php-bench-1024"
+      Description: "Bref benchmarks"
+      CodeUri: php-bench
+      Handler: index.php
+      MemorySize: 1024
+      Timeout: 30 # in seconds
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74:17"
+    Metadata:
+      BuildMethod: makefile
+  PhpBench1792:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-php-bench-1792"
+      Description: "Bref benchmarks"
+      CodeUri: php-bench
+      Handler: index.php
+      MemorySize: 1792
+      Timeout: 30 # in seconds
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74:17"
+    Metadata:
+      BuildMethod: makefile
+  PhpBench2048:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-php-bench-2048"
+      Description: "Bref benchmarks"
+      CodeUri: php-bench
+      Handler: index.php
+      MemorySize: 2048
+      Timeout: 30 # in seconds
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74:17"
+    Metadata:
+      BuildMethod: makefile
+  PhpBench3000:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-php-bench-3000"
+      Description: "Bref benchmarks"
+      CodeUri: php-bench
+      Handler: index.php
+      MemorySize: 3000
+      Timeout: 30 # in seconds
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74:17"
+    Metadata:
+      BuildMethod: makefile
 
-    PhpBench128:
-        Type: AWS::Serverless::Function
-        Properties:
-            FunctionName: 'bref-benchmark-php-bench-128'
-            Description: 'Bref benchmarks'
-            CodeUri: php-bench
-            Handler: index.php
-            MemorySize: 128
-            Timeout: 30 # in seconds
-            Runtime: provided
-            Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73:8'
-    PhpBench512:
-        Type: AWS::Serverless::Function
-        Properties:
-            FunctionName: 'bref-benchmark-php-bench-512'
-            Description: 'Bref benchmarks'
-            CodeUri: php-bench
-            Handler: index.php
-            MemorySize: 512
-            Timeout: 30 # in seconds
-            Runtime: provided
-            Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73:8'
-    PhpBench1024:
-        Type: AWS::Serverless::Function
-        Properties:
-            FunctionName: 'bref-benchmark-php-bench-1024'
-            Description: 'Bref benchmarks'
-            CodeUri: php-bench
-            Handler: index.php
-            MemorySize: 1024
-            Timeout: 30 # in seconds
-            Runtime: provided
-            Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73:8'
-    PhpBench2048:
-        Type: AWS::Serverless::Function
-        Properties:
-            FunctionName: 'bref-benchmark-php-bench-2048'
-            Description: 'Bref benchmarks'
-            CodeUri: php-bench
-            Handler: index.php
-            MemorySize: 2048
-            Timeout: 30 # in seconds
-            Runtime: provided
-            Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73:8'
+  Symfony128:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-symfony-128"
+      Description: "Bref benchmarks"
+      CodeUri: symfony
+      Handler: index.php
+      MemorySize: 128
+      Timeout: 30 # in seconds
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74-fpm:17"
+      Events:
+        HttpRoot:
+          Type: Api
+          Properties:
+            Path: /symfony/128
+            Method: ANY
+    Metadata:
+      BuildMethod: makefile
+  Symfony512:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-symfony-512"
+      Description: "Bref benchmarks"
+      CodeUri: symfony
+      Handler: index.php
+      MemorySize: 512
+      Timeout: 30 # in seconds
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74-fpm:17"
+      Events:
+        HttpRoot:
+          Type: Api
+          Properties:
+            Path: /symfony/512
+            Method: ANY
+    Metadata:
+      BuildMethod: makefile
+  Symfony1024:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-symfony-1024"
+      Description: "Bref benchmarks"
+      CodeUri: symfony
+      Handler: index.php
+      MemorySize: 1024
+      Timeout: 30 # in seconds
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74-fpm:17"
+      Events:
+        HttpRoot:
+          Type: Api
+          Properties:
+            Path: /symfony/1024
+            Method: ANY
+    Metadata:
+      BuildMethod: makefile
+  Symfony1792:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-symfony-1792"
+      Description: "Bref benchmarks"
+      CodeUri: symfony
+      Handler: index.php
+      MemorySize: 1792
+      Timeout: 30 # in seconds
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74-fpm:17"
+      Events:
+        HttpRoot:
+          Type: Api
+          Properties:
+            Path: /symfony/1792
+            Method: ANY
+    Metadata:
+      BuildMethod: makefile
+  Symfony2048:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-symfony-2048"
+      Description: "Bref benchmarks"
+      CodeUri: symfony
+      Handler: index.php
+      MemorySize: 2048
+      Timeout: 30 # in seconds
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74-fpm:17"
+      Events:
+        HttpRoot:
+          Type: Api
+          Properties:
+            Path: /symfony/2048
+            Method: ANY
+    Metadata:
+      BuildMethod: makefile
 
-    Symfony128:
-        Type: AWS::Serverless::Function
-        Properties:
-            FunctionName: 'bref-benchmark-symfony-128'
-            Description: 'Bref benchmarks'
-            CodeUri: symfony
-            Handler: index.php
-            MemorySize: 128
-            Timeout: 30 # in seconds
-            Runtime: provided
-            Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73-fpm:8'
-            Events:
-                HttpRoot:
-                    Type: Api
-                    Properties:
-                        Path: /symfony/128
-                        Method: ANY
-    Symfony512:
-        Type: AWS::Serverless::Function
-        Properties:
-            FunctionName: 'bref-benchmark-symfony-512'
-            Description: 'Bref benchmarks'
-            CodeUri: symfony
-            Handler: index.php
-            MemorySize: 512
-            Timeout: 30 # in seconds
-            Runtime: provided
-            Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73-fpm:8'
-            Events:
-                HttpRoot:
-                    Type: Api
-                    Properties:
-                        Path: /symfony/512
-                        Method: ANY
-    Symfony1024:
-        Type: AWS::Serverless::Function
-        Properties:
-            FunctionName: 'bref-benchmark-symfony-1024'
-            Description: 'Bref benchmarks'
-            CodeUri: symfony
-            Handler: index.php
-            MemorySize: 1024
-            Timeout: 30 # in seconds
-            Runtime: provided
-            Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73-fpm:8'
-            Events:
-                HttpRoot:
-                    Type: Api
-                    Properties:
-                        Path: /symfony/1024
-                        Method: ANY
-    Symfony2048:
-        Type: AWS::Serverless::Function
-        Properties:
-            FunctionName: 'bref-benchmark-symfony-2048'
-            Description: 'Bref benchmarks'
-            CodeUri: symfony
-            Handler: index.php
-            MemorySize: 2048
-            Timeout: 30 # in seconds
-            Runtime: provided
-            Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73-fpm:8'
-            Events:
-                HttpRoot:
-                    Type: Api
-                    Properties:
-                        Path: /symfony/2048
-                        Method: ANY
+  Symfony3000:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: "bref-benchmark-symfony-3000"
+      Description: "Bref benchmarks"
+      CodeUri: symfony
+      Handler: index.php
+      MemorySize: 3000
+      Timeout: 30 # in seconds
+      Runtime: provided.al2
+      Layers:
+        - "arn:aws:lambda:us-east-2:427186172465:layer:php-74-fpm:17"
+      Events:
+        HttpRoot:
+          Type: Api
+          Properties:
+            Path: /symfony/3000
+            Method: ANY
+    Metadata:
+      BuildMethod: makefile
