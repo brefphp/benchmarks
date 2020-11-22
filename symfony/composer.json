@@ -1,10 +1,10 @@
 {
   "require": {
-    "php": "^7.3.0",
+    "php": "^7.4.0",
     "ext-curl": "*",
     "ext-iconv": "*",
     "ext-json": "*",
-    "bref/bref": "0.5.29",
+    "bref/bref": "0.5.33",
     "symfony/dotenv": "*",
     "symfony/flex": "^1.3",
     "symfony/framework-bundle": "*",

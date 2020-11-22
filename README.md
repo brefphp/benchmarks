@@ -13,9 +13,9 @@ Number of samples: 900
 
 |                  | 128   | 512  | 1024 | 2048 |
 |------------------|------:|-----:|-----:|-----:|
-| PHP function     | 175ms | 35ms | 16ms | 13ms |
-| HTTP application |  10ms |  1ms |  1ms |  1ms |
-| Symfony          |  58ms |  4ms |  4ms |  4ms |
+| PHP function     | 175ms | 35ms | 17ms | 15ms |
+| HTTP application |   1ms |  1ms |  1ms |  1ms |
+| Symfony          |  45ms |  5ms |  5ms |  5ms |
 
 For comparison on a 512M Digital Ocean droplet we get 1ms for "HTTP application" and 6ms for Symfony.
 
@@ -35,9 +35,9 @@ Number of samples: 20
 
 |                  | 128   | 512   | 1024  | 2048  |
 |------------------|------:|------:|------:|------:|
-| PHP function     | 500ms | 240ms | 230ms | 220ms |
-| HTTP application | 345ms | 250ms | 240ms | 240ms |
-| Symfony          |  5.4s |  1.4s | 800ms | 500ms |
+| PHP function     | 430ms | 260ms | 230ms | 230ms |
+| HTTP application | 415ms | 320ms | 320ms | 320ms |
+| Symfony          |  6.0s |  1.7s | 950ms | 690ms |
 
 Notes:
 
@@ -51,4 +51,5 @@ You will need [to install dependencies of Bref](https://bref.sh/docs/installatio
 - create a S3 bucket in `us-east-2` and change the bucket name in `Makefile` (replace it with yours)
 - `make deploy`
 - `make bench-cold-starts`
-- `make bench-warm`
+- `make bench-function`
+- `make bench-http`

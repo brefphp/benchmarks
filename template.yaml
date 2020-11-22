@@ -14,7 +14,7 @@ Resources:
             MemorySize: 128
             Runtime: provided
             Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73:8'
+                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-74:14'
     PhpFunction512:
         Type: AWS::Serverless::Function
         Properties:
@@ -25,7 +25,7 @@ Resources:
             MemorySize: 512
             Runtime: provided
             Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73:8'
+                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-74:14'
     PhpFunction1024:
         Type: AWS::Serverless::Function
         Properties:
@@ -36,7 +36,7 @@ Resources:
             MemorySize: 1024
             Runtime: provided
             Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73:8'
+                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-74:14'
     PhpFunction2048:
         Type: AWS::Serverless::Function
         Properties:
@@ -47,7 +47,7 @@ Resources:
             MemorySize: 2048
             Runtime: provided
             Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73:8'
+                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-74:14'
 
     HttpApplication128:
         Type: AWS::Serverless::Function
@@ -59,7 +59,7 @@ Resources:
             MemorySize: 128
             Runtime: provided
             Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73-fpm:8'
+                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-74-fpm:14'
             Events:
                 HttpRoot:
                     Type: Api
@@ -76,7 +76,7 @@ Resources:
             MemorySize: 512
             Runtime: provided
             Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73-fpm:8'
+                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-74-fpm:14'
             Events:
                 HttpRoot:
                     Type: Api
@@ -93,7 +93,7 @@ Resources:
             MemorySize: 1024
             Runtime: provided
             Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73-fpm:8'
+                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-74-fpm:14'
             Events:
                 HttpRoot:
                     Type: Api
@@ -110,7 +110,7 @@ Resources:
             MemorySize: 2048
             Runtime: provided
             Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73-fpm:8'
+                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-74-fpm:14'
             Events:
                 HttpRoot:
                     Type: Api
@@ -129,7 +129,7 @@ Resources:
             Timeout: 30 # in seconds
             Runtime: provided
             Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73:8'
+                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-74:14'
     PhpBench512:
         Type: AWS::Serverless::Function
         Properties:
@@ -141,7 +141,7 @@ Resources:
             Timeout: 30 # in seconds
             Runtime: provided
             Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73:8'
+                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-74:14'
     PhpBench1024:
         Type: AWS::Serverless::Function
         Properties:
@@ -153,7 +153,7 @@ Resources:
             Timeout: 30 # in seconds
             Runtime: provided
             Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73:8'
+                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-74:14'
     PhpBench2048:
         Type: AWS::Serverless::Function
         Properties:
@@ -165,7 +165,7 @@ Resources:
             Timeout: 30 # in seconds
             Runtime: provided
             Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73:8'
+                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-74:14'
 
     Symfony128:
         Type: AWS::Serverless::Function
@@ -178,7 +178,7 @@ Resources:
             Timeout: 30 # in seconds
             Runtime: provided
             Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73-fpm:8'
+                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-74-fpm:14'
             Events:
                 HttpRoot:
                     Type: Api
@@ -196,7 +196,7 @@ Resources:
             Timeout: 30 # in seconds
             Runtime: provided
             Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73-fpm:8'
+                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-74-fpm:14'
             Events:
                 HttpRoot:
                     Type: Api
@@ -214,7 +214,7 @@ Resources:
             Timeout: 30 # in seconds
             Runtime: provided
             Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73-fpm:8'
+                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-74-fpm:14'
             Events:
                 HttpRoot:
                     Type: Api
@@ -232,7 +232,7 @@ Resources:
             Timeout: 30 # in seconds
             Runtime: provided
             Layers:
-                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-73-fpm:8'
+                - 'arn:aws:lambda:us-east-2:209497400698:layer:php-74-fpm:14'
             Events:
                 HttpRoot:
                     Type: Api
