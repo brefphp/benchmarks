@@ -13,9 +13,9 @@ Number of samples: 900
 
 |                  | 128   | 512  | 1024 | 2048 |
 |------------------|------:|-----:|-----:|-----:|
-| PHP function     | 175ms | 35ms | 17ms | 15ms |
+| PHP function     | 140ms | 33ms | 16ms | 15ms |
 | HTTP application |   1ms |  1ms |  1ms |  1ms |
-| Symfony          |  45ms |  5ms |  5ms |  5ms |
+| Symfony          |  32ms |  5ms |  4ms |  4ms |
 
 For comparison on a 512M Digital Ocean droplet we get 1ms for "HTTP application" and 6ms for Symfony.
 
@@ -35,9 +35,9 @@ Number of samples: 20
 
 |                  | 128   | 512   | 1024  | 2048  |
 |------------------|------:|------:|------:|------:|
-| PHP function     | 430ms | 260ms | 230ms | 230ms |
-| HTTP application | 415ms | 320ms | 320ms | 320ms |
-| Symfony          |  6.0s |  1.7s | 950ms | 690ms |
+| PHP function     | 420ms | 250ms | 230ms | 220ms |
+| HTTP application | 370ms | 310ms | 300ms | 300ms |
+| Symfony          |  5.8s |  1.6s | 920ms | 650ms |
 
 Notes:
 

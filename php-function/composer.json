@@ -1,5 +1,5 @@
 {
     "require": {
-        "bref/bref": "0.5.33"
+        "bref/bref": "1.0.0-beta1"
     }
 }
