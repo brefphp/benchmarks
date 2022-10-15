@@ -39,9 +39,7 @@ Number of samples: 20
 | HTTP application | 370ms | 310ms | 300ms | 300ms |
 | Symfony          |  5.8s |  1.6s | 920ms | 650ms |
 
-Notes:
-
-- Symfony's cold start is high in these results because we do not pre-generate the cache before deploying (it is generated on the first hit). This is bad and not representative of real performances. This is the result of my laziness, hopefully I can find the time to run a real Symfony cold start benchmark in the near future.
+> **Warning** Symfony's cold start is high in these results because we do not pre-generate the cache before deploying (it is generated on the first hit). This is bad and not representative of real performances. This is the result of my laziness, hopefully I can find the time to run a real Symfony cold start benchmark in the near future.
 
 ## Reproducing
 
