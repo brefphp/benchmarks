@@ -41,7 +41,7 @@ Number of samples: 20
 
 Notes:
 
-- Symfony's cold start is high at the moment because we do not pre-generate the cache before deploying (it is generated on the first hit). This is an optimization that is planned.
+- Symfony's cold start is high in these results because we do not pre-generate the cache before deploying (it is generated on the first hit). This is bad and not representative of real performances. This is the result of my laziness, hopefully I can find the time to run a real Symfony cold start benchmark in the near future.
 
 ## Reproducing
 
