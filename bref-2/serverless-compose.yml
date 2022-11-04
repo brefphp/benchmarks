@@ -1,0 +1,7 @@
+services:
+
+    function:
+        path: function
+
+    fpm:
+        path: fpm

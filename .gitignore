@@ -2,3 +2,4 @@ vendor/
 composer.phar
 /.stack.yaml
 composer.lock
+.serverless/
