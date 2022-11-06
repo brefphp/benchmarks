@@ -4,6 +4,8 @@ provider:
     name: aws
     region: us-east-2
     runtime: provided.al2
+    environment:
+        FOO: bar
     layers:
         - ${bref:layer.php-81-fpm}
 

@@ -28,7 +28,30 @@ done
 wait # Wait for all invocations to finish
 
 # HTTP application
-ab -c 20 -n 20 https://6vx096tc91.execute-api.us-east-2.amazonaws.com/128
-ab -c 20 -n 20 https://6vx096tc91.execute-api.us-east-2.amazonaws.com/512
-ab -c 20 -n 20 https://6vx096tc91.execute-api.us-east-2.amazonaws.com/1024
-ab -c 20 -n 20 https://6vx096tc91.execute-api.us-east-2.amazonaws.com/1769
+for value in {1..20}
+do
+    curl --silent https://6vx096tc91.execute-api.us-east-2.amazonaws.com/128 > /dev/null &
+done
+wait
+echo "."
+
+for value in {1..20}
+do
+    curl --silent https://6vx096tc91.execute-api.us-east-2.amazonaws.com/512 > /dev/null &
+done
+wait
+echo "."
+
+for value in {1..20}
+do
+    curl --silent https://6vx096tc91.execute-api.us-east-2.amazonaws.com/1024 > /dev/null &
+done
+wait
+echo "."
+
+for value in {1..20}
+do
+    curl --silent https://6vx096tc91.execute-api.us-east-2.amazonaws.com/1769 > /dev/null &
+done
+wait
+echo "."

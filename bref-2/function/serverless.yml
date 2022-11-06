@@ -4,8 +4,6 @@ provider:
     name: aws
     region: us-east-2
     runtime: provided.al2
-    layers:
-        - ${bref:layer.php-81}
 
 plugins:
     - ./vendor/bref/bref
@@ -14,12 +12,45 @@ functions:
     128:
         handler: index.php
         memorySize: 128
+        layers:
+            - ${bref:layer.php-81}
     512:
         handler: index.php
         memorySize: 512
+        layers:
+            - ${bref:layer.php-81}
     1024:
         handler: index.php
         memorySize: 1024
+        layers:
+            - ${bref:layer.php-81}
     1769:
         handler: index.php
         memorySize: 1769
+        layers:
+            - ${bref:layer.php-81}
+
+    128-arm:
+        handler: index.php
+        memorySize: 128
+        architecture: arm64
+        layers:
+            - ${bref:layer.arm-php-80}
+    512-arm:
+        handler: index.php
+        memorySize: 512
+        architecture: arm64
+        layers:
+            - ${bref:layer.arm-php-80}
+    1024-arm:
+        handler: index.php
+        memorySize: 1024
+        architecture: arm64
+        layers:
+            - ${bref:layer.arm-php-80}
+    1769-arm:
+        handler: index.php
+        memorySize: 1769
+        architecture: arm64
+        layers:
+            - ${bref:layer.arm-php-80}

@@ -22,7 +22,14 @@ Number of samples: 900
 
 | Memory           |   128 |  512 | 1024 | 1769 |
 |------------------|------:|-----:|-----:|-----:|
-| PHP function     | 252ms | 47ms | 21ms | 21ms |
+| PHP function     | 262ms | 50ms | 21ms | 21ms |
+| HTTP application |   1ms |  1ms |  1ms |  1ms |
+
+### Bref 2.x ARM (PHP 8.0)
+
+| Memory           |   128 |  512 | 1024 | 1769 |
+|------------------|------:|-----:|-----:|-----:|
+| PHP function     | 236ms | 45ms | 23ms | 20ms |
 | HTTP application |   1ms |  1ms |  1ms |  1ms |
 
 For comparison on a 512M Digital Ocean droplet we get 1ms for "HTTP application" and 6ms for Symfony.
@@ -45,27 +52,33 @@ Number of samples: 20
 
 | Memory           |   128 |   512 |  1024 |  1769 |
 |------------------|------:|------:|------:|------:|
-| PHP function     | 210ms | 210ms | 210ms | 210ms |
-| HTTP application | 300ms | 300ms | 300ms | 300ms |
+| PHP function     | 408ms | 248ms | 240ms | 228ms |
+| HTTP application | 408ms | 328ms | 320ms | 320ms |
 
 ### Bref 2.x (PHP 8.1)
 
 | Memory           |   128 |   512 |  1024 |  1769 |
 |------------------|------:|------:|------:|------:|
-| PHP function     | 170ms | 170ms | 170ms | 170ms |
-| HTTP application | 250ms | 250ms | 250ms | 250ms |
+| PHP function     | 465ms | 235ms | 210ms | 205ms |
+| HTTP application | 370ms | 280ms | 266ms | 266ms |
+
+### Bref 2.x ARM (PHP 8.0)
+
+| Memory           |   128 |   512 |  1024 |  1769 |
+|------------------|------:|------:|------:|------:|
+| PHP function     | 445ms | 205ms | 180ms | 180ms |
+| HTTP application | 333ms | 240ms | 239ms | 232ms |
 
 Measuring cold starts in CloudWatch Logs Insights:
 
 ```
-filter @type = “REPORT” 
-| stats 
- count(@type) as invocations,
- (count(@initDuration)/count(@type))*100 as percentageColdStarts,
- count(@initDuration) as countColdStarts,
- min(@initDuration) as minColdStart,
- pct(@initDuration, 50) as p50ColdStart,
- max(@initDuration) as maxColdStart
+filter @type = “REPORT” and @initDuration
+| stats
+ count(@type) as count,
+ min(@billedDuration) as min,
+ avg(@billedDuration) as avg,
+ pct(@billedDuration, 50) as p50,
+ max(@billedDuration) as max
 by @log
 | sort @log
 ```
