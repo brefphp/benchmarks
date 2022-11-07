@@ -17,6 +17,7 @@ Number of samples: 900
 |------------------|------:|-----:|-----:|-----:|
 | PHP function     | 145ms | 27ms | 15ms | 14ms |
 | HTTP application |   1ms |  1ms |  1ms |  1ms |
+| Laravel          |       |      |  9ms |      |
 
 ### Bref 2.x (PHP 8.1)
 
@@ -24,6 +25,7 @@ Number of samples: 900
 |------------------|------:|-----:|-----:|-----:|
 | PHP function     | 262ms | 50ms | 21ms | 21ms |
 | HTTP application |   1ms |  1ms |  1ms |  1ms |
+| Laravel          |       |      |  9ms |      |
 
 ### Bref 2.x ARM (PHP 8.0)
 
@@ -31,6 +33,7 @@ Number of samples: 900
 |------------------|------:|-----:|-----:|-----:|
 | PHP function     | 236ms | 45ms | 23ms | 20ms |
 | HTTP application |   1ms |  1ms |  1ms |  1ms |
+| Laravel          |       |      | 11ms |      |
 
 For comparison on a 512M Digital Ocean droplet we get 1ms for "HTTP application" and 6ms for Symfony.
 
@@ -52,8 +55,9 @@ Number of samples: 20
 
 | Memory           |   128 |   512 |  1024 |  1769 |
 |------------------|------:|------:|------:|------:|
-| PHP function     | 408ms | 248ms | 240ms | 228ms |
-| HTTP application | 408ms | 328ms | 320ms | 320ms |
+| PHP function     | 420ms | 250ms | 230ms | 228ms |
+| HTTP application | 420ms | 330ms | 310ms | 310ms |
+| Laravel          |       |       | 940ms |       |
 
 ### Bref 2.x (PHP 8.1)
 
@@ -61,6 +65,7 @@ Number of samples: 20
 |------------------|------:|------:|------:|------:|
 | PHP function     | 465ms | 235ms | 210ms | 205ms |
 | HTTP application | 370ms | 280ms | 266ms | 266ms |
+| Laravel          |       |       | 895ms |       |
 
 ### Bref 2.x ARM (PHP 8.0)
 
@@ -68,6 +73,7 @@ Number of samples: 20
 |------------------|------:|------:|------:|------:|
 | PHP function     | 445ms | 205ms | 180ms | 180ms |
 | HTTP application | 333ms | 240ms | 239ms | 232ms |
+| Laravel          |       |       | 845ms |       |
 
 Measuring cold starts in CloudWatch Logs Insights:
 

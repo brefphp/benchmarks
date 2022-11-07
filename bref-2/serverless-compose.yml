@@ -5,3 +5,6 @@ services:
 
     fpm:
         path: fpm
+
+    laravel:
+        path: laravel

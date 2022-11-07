@@ -55,3 +55,11 @@ do
 done
 wait
 echo "."
+
+# Laravel
+for value in {1..20}
+do
+    curl --silent https://vymepouxc5.execute-api.us-east-2.amazonaws.com/1024 > /dev/null &
+done
+wait
+echo "."

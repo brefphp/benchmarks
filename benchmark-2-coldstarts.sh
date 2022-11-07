@@ -104,3 +104,17 @@ do
 done
 wait
 echo "."
+
+# Laravel
+for value in {1..20}
+do
+    curl --silent https://2ssqzwaiek.execute-api.us-east-2.amazonaws.com/1024 > /dev/null &
+done
+wait
+echo "."
+for value in {1..20}
+do
+    curl --silent https://2ssqzwaiek.execute-api.us-east-2.amazonaws.com/1024-arm > /dev/null &
+done
+wait
+echo "."

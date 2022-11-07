@@ -24,7 +24,9 @@ bench-phpbench:
 setup:
 	cd bref-1/function && composer update --no-dev --classmap-authoritative
 	cd bref-1/fpm && composer update --no-dev --classmap-authoritative
+	cd bref-1/laravel && composer update --no-dev --classmap-authoritative && php artisan config:clear && php artisan route:cache
 	cd bref-2/function && composer update --no-dev --classmap-authoritative
 	cd bref-2/fpm && composer update --no-dev --classmap-authoritative
+	cd bref-2/laravel && composer update --no-dev --classmap-authoritative && php artisan config:clear && php artisan route:cache
 
 .PHONY: setup
