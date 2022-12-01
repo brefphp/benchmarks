@@ -13,27 +13,32 @@ Number of samples: 900
 
 ### Bref 1.x (PHP 8.1)
 
-| Memory           |   128 |  512 | 1024 | 1769 |
-|------------------|------:|-----:|-----:|-----:|
-| PHP function     | 145ms | 27ms | 15ms | 14ms |
-| HTTP application |   1ms |  1ms |  1ms |  1ms |
-| Laravel          |       |      |  9ms |      |
+| Memory                       |   128 |  512 | 1024 | 1769 |
+|------------------------------|------:|-----:|-----:|-----:|
+| PHP function                 | 145ms | 27ms | 15ms | 14ms |
+| PHP function (BREF_LOOP_MAP) |       |      |  1ms |  1ms |
+| HTTP application             |   1ms |  1ms |  1ms |  1ms |
+| Laravel                      |       |      |  9ms |      |
+
+([`BREF_LOOP_MAP` docs](https://bref.sh/docs/environment/performances.html#bref-for-event-driven-functions))
 
 ### Bref 2.x (PHP 8.1)
 
-| Memory           |   128 |  512 | 1024 | 1769 |
-|------------------|------:|-----:|-----:|-----:|
-| PHP function     | 262ms | 50ms | 21ms | 21ms |
-| HTTP application |   1ms |  1ms |  1ms |  1ms |
-| Laravel          |       |      |  9ms |      |
+| Memory                       |   128 |  512 | 1024 | 1769 |
+|------------------------------|------:|-----:|-----:|-----:|
+| PHP function                 | 250ms | 46ms | 24ms | 21ms |
+| PHP function (BREF_LOOP_MAP) |       |      |  1ms |  1ms |
+| HTTP application             |   1ms |  1ms |  1ms |  1ms |
+| Laravel                      |       |      |  8ms |      |
 
 ### Bref 2.x ARM (PHP 8.0)
 
-| Memory           |   128 |  512 | 1024 | 1769 |
-|------------------|------:|-----:|-----:|-----:|
-| PHP function     | 236ms | 45ms | 23ms | 20ms |
-| HTTP application |   1ms |  1ms |  1ms |  1ms |
-| Laravel          |       |      | 11ms |      |
+| Memory                       |   128 |  512 | 1024 | 1769 |
+|------------------------------|------:|-----:|-----:|-----:|
+| PHP function                 | 240ms | 41ms | 21ms | 20ms |
+| PHP function (BREF_LOOP_MAP) |       |      |  1ms |  1ms |
+| HTTP application             |   1ms |  1ms |  1ms |  1ms |
+| Laravel                      |       |      | 11ms |      |
 
 For comparison on a 512M Digital Ocean droplet we get 1ms for "HTTP application" and 6ms for Symfony.
 
