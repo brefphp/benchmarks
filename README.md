@@ -57,7 +57,7 @@ Number of samples: 20
 |------------------|------:|------:|------:|------:|
 | PHP function     | 420ms | 250ms | 230ms | 228ms |
 | HTTP application | 420ms | 330ms | 310ms | 310ms |
-| Laravel          |       |       | 940ms |       |
+| Laravel          |       |       | 920ms |       |
 
 ### Bref 2.x (PHP 8.1)
 
@@ -65,15 +65,15 @@ Number of samples: 20
 |------------------|------:|------:|------:|------:|
 | PHP function     | 465ms | 235ms | 210ms | 205ms |
 | HTTP application | 370ms | 280ms | 266ms | 266ms |
-| Laravel          |       |       | 895ms |       |
+| Laravel          |       |       | 885ms |       |
 
 ### Bref 2.x ARM (PHP 8.0)
 
 | Memory           |   128 |   512 |  1024 |  1769 |
 |------------------|------:|------:|------:|------:|
-| PHP function     | 445ms | 205ms | 180ms | 180ms |
-| HTTP application | 333ms | 240ms | 239ms | 232ms |
-| Laravel          |       |       | 845ms |       |
+| PHP function     | 440ms | 205ms | 175ms | 165ms |
+| HTTP application | 325ms | 230ms | 220ms | 220ms |
+| Laravel          |       |       | 820ms |       |
 
 Measuring cold starts in CloudWatch Logs Insights:
 
