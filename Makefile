@@ -1,34 +1,32 @@
 # Deploy all the lambdas
-deploy: setup
-	sam package \
-        --template-file template.yaml \
-        --output-template-file .stack.yaml \
-        --s3-bucket bref-benchmarks
-	sam deploy \
-        --template-file .stack.yaml \
-        --stack-name bref-benchmarks \
-        --capabilities CAPABILITY_IAM \
-        --region us-east-2
+deploy:
+	cd bref-1 && serverless deploy && serverless info
+	cd bref-2 && serverless deploy && serverless info
 
-bench-cold-starts:
-	./benchmark-coldstarts.sh
+bench-cold-starts-1:
+	./benchmark-1-coldstarts.sh
+bench-function-1:
+	./benchmark-1-function.sh
+bench-http-1:
+	./benchmark-1-http.sh
 
-bench-function:
-	./benchmark-function.sh
-
-bench-http:
-	./benchmark-http.sh
+bench-cold-starts-2:
+	./benchmark-2-coldstarts.sh
+bench-function-2:
+	./benchmark-2-function.sh
+bench-http-2:
+	./benchmark-2-http.sh
 
 bench-phpbench:
 	./benchmark-phpbench.sh
 
 # Set things up
 setup:
-	cd php-function && composer install --no-dev --classmap-authoritative
-	cd http-application && composer install --no-dev --classmap-authoritative
-	cd php-bench && composer install --no-dev --classmap-authoritative
-	cd symfony && composer install --no-dev --classmap-authoritative --no-scripts
-	rm -rf symfony/var/cache/*
-	cd symfony && php bin/console cache:clear --no-debug --env=prod
+	cd bref-1/function && composer update --no-dev --classmap-authoritative
+	cd bref-1/fpm && composer update --no-dev --classmap-authoritative
+	cd bref-1/laravel && composer update --no-dev --classmap-authoritative && php artisan config:clear && php artisan route:cache
+	cd bref-2/function && composer update --no-dev --classmap-authoritative
+	cd bref-2/fpm && composer update --no-dev --classmap-authoritative
+	cd bref-2/laravel && composer update --no-dev --classmap-authoritative && php artisan config:clear && php artisan route:cache
 
 .PHONY: setup

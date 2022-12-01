@@ -2,20 +2,43 @@ Benchmarks for [Bref](https://github.com/brefphp/bref) running on AWS Lambda.
 
 ## Scenarios
 
-- PHP function: a simple PHP function, see `php-function/index.php`
-- HTTP application: a simple PHP script that returns `Hello world`, see `http-application/index.php`
+- PHP function: a simple PHP function, see `function/index.php`
+- HTTP application: a simple PHP web page that returns `Hello world`, see `fpm/index.php`
 
-## Average (warm) execution time
+## Median (warm) execution time
 
 Average execution time for a lambda that doesn't do anything.
 
 Number of samples: 900
 
-|                  | 128   | 512  | 1024 | 2048 |
-|------------------|------:|-----:|-----:|-----:|
-| PHP function     | 140ms | 33ms | 16ms | 15ms |
-| HTTP application |   1ms |  1ms |  1ms |  1ms |
-| Symfony          |  32ms |  5ms |  4ms |  4ms |
+### Bref 1.x (PHP 8.1)
+
+| Memory                       |   128 |  512 | 1024 | 1769 |
+|------------------------------|------:|-----:|-----:|-----:|
+| PHP function                 | 145ms | 27ms | 15ms | 14ms |
+| PHP function (BREF_LOOP_MAP) |       |      |  1ms |  1ms |
+| HTTP application             |   1ms |  1ms |  1ms |  1ms |
+| Laravel                      |       |      |  9ms |      |
+
+([`BREF_LOOP_MAP` docs](https://bref.sh/docs/environment/performances.html#bref-for-event-driven-functions))
+
+### Bref 2.x (PHP 8.1)
+
+| Memory                       |   128 |  512 | 1024 | 1769 |
+|------------------------------|------:|-----:|-----:|-----:|
+| PHP function                 | 250ms | 46ms | 24ms | 21ms |
+| PHP function (BREF_LOOP_MAP) |       |      |  1ms |  1ms |
+| HTTP application             |   1ms |  1ms |  1ms |  1ms |
+| Laravel                      |       |      |  8ms |      |
+
+### Bref 2.x ARM (PHP 8.0)
+
+| Memory                       |   128 |  512 | 1024 | 1769 |
+|------------------------------|------:|-----:|-----:|-----:|
+| PHP function                 | 240ms | 41ms | 21ms | 20ms |
+| PHP function (BREF_LOOP_MAP) |       |      |  1ms |  1ms |
+| HTTP application             |   1ms |  1ms |  1ms |  1ms |
+| Laravel                      |       |      | 11ms |      |
 
 For comparison on a 512M Digital Ocean droplet we get 1ms for "HTTP application" and 6ms for Symfony.
 
@@ -23,9 +46,9 @@ For comparison on a 512M Digital Ocean droplet we get 1ms for "HTTP application"
 
 The more RAM, the more CPU power is allocated to the lambda. This is clearly visible when running [PHP's official `bench.php` script](https://github.com/php/php-src/blob/master/Zend/bench.php).
 
-|                  | 128   | 512  | 1024 | 2048 |
-|------------------|------:|-----:|-----:|-----:|
-| `bench.php`      |  5.7s | 1.4s | 0.65s | 0.33s |
+| Memory      |  128 |  512 |  1024 |  1769 |
+|-------------|-----:|-----:|------:|------:|
+| `bench.php` | 5.7s | 1.4s | 0.65s | 0.33s |
 
 For comparison  `bench.php` runs in 1.3s on a 512M Digital Ocean droplet, in 0.8s on a 2.8Ghz i7 and in 0.6s on a 3.2Ghz i5.
 
@@ -33,21 +56,50 @@ For comparison  `bench.php` runs in 1.3s on a 512M Digital Ocean droplet, in 0.8
 
 Number of samples: 20
 
-|                  | 128   | 512   | 1024  | 2048  |
-|------------------|------:|------:|------:|------:|
-| PHP function     | 420ms | 250ms | 230ms | 220ms |
-| HTTP application | 370ms | 310ms | 300ms | 300ms |
-| Symfony          |  5.8s |  1.6s | 920ms | 650ms |
+### Bref 1.x (PHP 8.1)
 
-> **Warning** Symfony's cold start is high in these results because we do not pre-generate the cache before deploying (it is generated on the first hit). This is bad and not representative of real performances. This is the result of my laziness, hopefully I can find the time to run a real Symfony cold start benchmark in the near future.
+| Memory           |   128 |   512 |  1024 |  1769 |
+|------------------|------:|------:|------:|------:|
+| PHP function     | 420ms | 250ms | 230ms | 228ms |
+| HTTP application | 420ms | 330ms | 310ms | 310ms |
+| Laravel          |       |       | 920ms |       |
+
+### Bref 2.x (PHP 8.1)
+
+| Memory           |   128 |   512 |  1024 |  1769 |
+|------------------|------:|------:|------:|------:|
+| PHP function     | 465ms | 235ms | 210ms | 205ms |
+| HTTP application | 370ms | 280ms | 266ms | 266ms |
+| Laravel          |       |       | 885ms |       |
+
+### Bref 2.x ARM (PHP 8.0)
+
+| Memory           |   128 |   512 |  1024 |  1769 |
+|------------------|------:|------:|------:|------:|
+| PHP function     | 440ms | 205ms | 175ms | 165ms |
+| HTTP application | 325ms | 230ms | 220ms | 220ms |
+| Laravel          |       |       | 820ms |       |
+
+Measuring cold starts in CloudWatch Logs Insights:
+
+```
+filter @type = “REPORT” and @initDuration
+| stats
+ count(@type) as count,
+ min(@billedDuration) as min,
+ avg(@billedDuration) as avg,
+ pct(@billedDuration, 50) as p50,
+ max(@billedDuration) as max
+by @log
+| sort @log
+```
 
 ## Reproducing
 
 You will need [to install dependencies of Bref](https://bref.sh/docs/installation.html). Then:
 
 - clone the repository
-- create a S3 bucket in `us-east-2` and change the bucket name in `Makefile` (replace it with yours)
+- `make setup`
 - `make deploy`
-- `make bench-cold-starts`
-- `make bench-function`
-- `make bench-http`
+
+Then run the `make bench-*` commands.

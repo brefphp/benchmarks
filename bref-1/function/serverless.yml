@@ -1,0 +1,27 @@
+service: bref1-bench-function
+
+provider:
+    name: aws
+    region: us-east-2
+    runtime: provided.al2
+    environment:
+        FOO: bar
+    layers:
+        - ${bref:layer.php-81}
+
+plugins:
+    - ./vendor/bref/bref
+
+functions:
+    128:
+        handler: index.php
+        memorySize: 128
+    512:
+        handler: index.php
+        memorySize: 512
+    1024:
+        handler: index.php
+        memorySize: 1024
+    1769:
+        handler: index.php
+        memorySize: 1769

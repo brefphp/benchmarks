@@ -1,5 +1,0 @@
-index:
-    path: /{path}
-    controller: App\Controller\HomeController::index
-    requirements:
-        path: ".*"

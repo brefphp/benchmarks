@@ -1,0 +1,10 @@
+services:
+
+    function:
+        path: function
+
+    fpm:
+        path: fpm
+
+    laravel:
+        path: laravel

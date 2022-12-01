@@ -1,0 +1,27 @@
+service: bref1-bench-laravel
+
+provider:
+    name: aws
+    region: us-east-2
+    runtime: provided.al2
+
+plugins:
+    - ./vendor/bref/bref
+
+functions:
+    1024:
+        handler: public/index.php
+        memorySize: 1024
+        layers:
+            - ${bref:layer.php-81-fpm}
+        events:
+            -   httpApi: 'GET /1024'
+
+package:
+    patterns:
+        - '!node_modules/**'
+        - '!public/storage'
+        - '!resources/css/**'
+        - '!resources/js/**'
+        - '!storage/**'
+        - '!tests/**'
