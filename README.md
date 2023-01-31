@@ -22,23 +22,23 @@ Number of samples: 900
 
 ([`BREF_LOOP_MAP` docs](https://bref.sh/docs/environment/performances.html#bref-for-event-driven-functions))
 
-### Bref 2.x (PHP 8.1)
+### Bref 2.x (PHP 8.2)
 
 | Memory                       |   128 |  512 | 1024 | 1769 |
 |------------------------------|------:|-----:|-----:|-----:|
-| PHP function                 | 250ms | 46ms | 24ms | 21ms |
+| PHP function                 | 200ms | 40ms | 19ms | 18ms |
 | PHP function (BREF_LOOP_MAP) |       |      |  1ms |  1ms |
 | HTTP application             |   1ms |  1ms |  1ms |  1ms |
 | Laravel                      |       |      |  8ms |      |
 
-### Bref 2.x ARM (PHP 8.0)
+### Bref 2.x ARM (PHP 8.2)
 
 | Memory                       |   128 |  512 | 1024 | 1769 |
 |------------------------------|------:|-----:|-----:|-----:|
-| PHP function                 | 240ms | 41ms | 21ms | 20ms |
+| PHP function                 | 200ms | 40ms | 19ms | 18ms |
 | PHP function (BREF_LOOP_MAP) |       |      |  1ms |  1ms |
 | HTTP application             |   1ms |  1ms |  1ms |  1ms |
-| Laravel                      |       |      | 11ms |      |
+| Laravel                      |       |      |  9ms |      |
 
 For comparison on a 512M Digital Ocean droplet we get 1ms for "HTTP application" and 6ms for Symfony.
 
@@ -64,21 +64,21 @@ Number of samples: 20
 | HTTP application | 420ms | 330ms | 310ms | 310ms |
 | Laravel          |       |       | 920ms |       |
 
-### Bref 2.x (PHP 8.1)
+### Bref 2.x (PHP 8.2)
 
 | Memory           |   128 |   512 |  1024 |  1769 |
 |------------------|------:|------:|------:|------:|
-| PHP function     | 465ms | 235ms | 210ms | 205ms |
-| HTTP application | 370ms | 280ms | 266ms | 266ms |
+| PHP function     | 445ms | 250ms | 220ms | 215ms |
+| HTTP application | 460ms | 330ms | 310ms | 310ms |
 | Laravel          |       |       | 885ms |       |
 
-### Bref 2.x ARM (PHP 8.0)
+### Bref 2.x ARM (PHP 8.2)
 
 | Memory           |   128 |   512 |  1024 |  1769 |
 |------------------|------:|------:|------:|------:|
-| PHP function     | 440ms | 205ms | 175ms | 165ms |
-| HTTP application | 325ms | 230ms | 220ms | 220ms |
-| Laravel          |       |       | 820ms |       |
+| PHP function     | 425ms | 235ms | 205ms | 200ms |
+| HTTP application | 390ms | 290ms | 285ms | 285ms |
+| Laravel          |       |       | 875ms |       |
 
 Measuring cold starts in CloudWatch Logs Insights:
 

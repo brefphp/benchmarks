@@ -4,6 +4,7 @@ provider:
     name: aws
     region: us-east-2
     runtime: provided.al2
+    deploymentMethod: direct
 
 plugins:
     - ./vendor/bref/bref

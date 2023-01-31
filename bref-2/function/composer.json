@@ -1,10 +1,10 @@
 {
     "require": {
-        "bref/bref": "v2.x-dev"
+        "bref/bref": "^2.0@beta"
     },
     "config": {
         "platform": {
-            "php": "8.0.0"
+            "php": "8.2.0"
         }
     }
 }

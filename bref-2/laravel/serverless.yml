@@ -4,6 +4,7 @@ provider:
     name: aws
     region: us-east-2
     runtime: provided.al2
+    deploymentMethod: direct
 
 plugins:
     - ./vendor/bref/bref
@@ -13,7 +14,7 @@ functions:
         handler: public/index.php
         memorySize: 1024
         layers:
-            - ${bref:layer.php-81-fpm}
+            - ${bref:layer.php-82-fpm}
         events:
             -   httpApi: 'GET /1024'
 
@@ -22,7 +23,7 @@ functions:
         memorySize: 1024
         architecture: arm64
         layers:
-            - ${bref:layer.arm-php-80-fpm}
+            - ${bref:layer.arm-php-82-fpm}
         events:
             -   httpApi: 'GET /1024-arm'
 
