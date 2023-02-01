@@ -6,8 +6,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
-        "bref/bref": "v2.x-dev as 1.99.99",
-        "bref/laravel-bridge": "^1.2",
+        "bref/bref": "^2.0@beta",
+        "bref/laravel-bridge": "^1.2.3",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
@@ -61,7 +61,7 @@
             "pestphp/pest-plugin": true
         },
         "platform": {
-            "php": "8.0.8"
+            "php": "8.2.0"
         }
     },
     "minimum-stability": "dev",

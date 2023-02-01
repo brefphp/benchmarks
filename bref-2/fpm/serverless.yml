@@ -4,6 +4,7 @@ provider:
     name: aws
     region: us-east-2
     runtime: provided.al2
+    deploymentMethod: direct
 
 plugins:
     - ./vendor/bref/bref
@@ -13,28 +14,28 @@ functions:
         handler: index.php
         memorySize: 128
         layers:
-            - ${bref:layer.php-81-fpm}
+            - ${bref:layer.php-82-fpm}
         events:
             -   httpApi: 'GET /128'
     512:
         handler: index.php
         memorySize: 512
         layers:
-            - ${bref:layer.php-81-fpm}
+            - ${bref:layer.php-82-fpm}
         events:
             -   httpApi: 'GET /512'
     1024:
         handler: index.php
         memorySize: 1024
         layers:
-            - ${bref:layer.php-81-fpm}
+            - ${bref:layer.php-82-fpm}
         events:
             -   httpApi: 'GET /1024'
     1769:
         handler: index.php
         memorySize: 1769
         layers:
-            - ${bref:layer.php-81-fpm}
+            - ${bref:layer.php-82-fpm}
         events:
             -   httpApi: 'GET /1769'
 
@@ -43,7 +44,7 @@ functions:
         memorySize: 128
         architecture: arm64
         layers:
-            - ${bref:layer.arm-php-80-fpm}
+            - ${bref:layer.arm-php-82-fpm}
         events:
             -   httpApi: 'GET /128-arm'
     512-arm:
@@ -51,7 +52,7 @@ functions:
         memorySize: 512
         architecture: arm64
         layers:
-            - ${bref:layer.arm-php-80-fpm}
+            - ${bref:layer.arm-php-82-fpm}
         events:
             -   httpApi: 'GET /512-arm'
     1024-arm:
@@ -59,7 +60,7 @@ functions:
         memorySize: 1024
         architecture: arm64
         layers:
-            - ${bref:layer.arm-php-80-fpm}
+            - ${bref:layer.arm-php-82-fpm}
         events:
             -   httpApi: 'GET /1024-arm'
     1769-arm:
@@ -67,6 +68,6 @@ functions:
         memorySize: 1769
         architecture: arm64
         layers:
-            - ${bref:layer.arm-php-80-fpm}
+            - ${bref:layer.arm-php-82-fpm}
         events:
             -   httpApi: 'GET /1769-arm'
