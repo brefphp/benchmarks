@@ -26,16 +26,16 @@ Number of samples: 900
 
 | Memory                       |   128 |  512 | 1024 | 1769 |
 |------------------------------|------:|-----:|-----:|-----:|
-| PHP function                 | 200ms | 40ms | 19ms | 18ms |
+| PHP function                 | 135ms | 23ms | 14ms | 14ms |
 | PHP function (BREF_LOOP_MAP) |       |      |  1ms |  1ms |
 | HTTP application             |   1ms |  1ms |  1ms |  1ms |
-| Laravel                      |       |      |  8ms |      |
+| Laravel                      |       |      |  9ms |      |
 
 ### Bref 2.x ARM (PHP 8.2)
 
 | Memory                       |   128 |  512 | 1024 | 1769 |
 |------------------------------|------:|-----:|-----:|-----:|
-| PHP function                 | 200ms | 40ms | 19ms | 18ms |
+| PHP function                 | 145ms | 26ms | 14ms | 14ms |
 | PHP function (BREF_LOOP_MAP) |       |      |  1ms |  1ms |
 | HTTP application             |   1ms |  1ms |  1ms |  1ms |
 | Laravel                      |       |      |  9ms |      |
@@ -68,17 +68,17 @@ Number of samples: 20
 
 | Memory           |   128 |   512 |  1024 |  1769 |
 |------------------|------:|------:|------:|------:|
-| PHP function     | 445ms | 250ms | 220ms | 215ms |
-| HTTP application | 460ms | 330ms | 310ms | 310ms |
+| PHP function     | 405ms | 235ms | 220ms | 220ms |
+| HTTP application | 420ms | 315ms | 315ms | 315ms |
 | Laravel          |       |       | 885ms |       |
 
 ### Bref 2.x ARM (PHP 8.2)
 
 | Memory           |   128 |   512 |  1024 |  1769 |
 |------------------|------:|------:|------:|------:|
-| PHP function     | 425ms | 235ms | 205ms | 200ms |
-| HTTP application | 390ms | 290ms | 285ms | 285ms |
-| Laravel          |       |       | 875ms |       |
+| PHP function     | 385ms | 225ms | 205ms | 200ms |
+| HTTP application | 405ms | 300ms | 290ms | 290ms |
+| Laravel          |       |       | 880ms |       |
 
 Measuring cold starts in CloudWatch Logs Insights:
 
