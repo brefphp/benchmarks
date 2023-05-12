@@ -16,18 +16,18 @@ Number of samples: 900
 | Memory                       |   128 |  512 | 1024 | 1769 |
 |------------------------------|------:|-----:|-----:|-----:|
 | PHP function                 | 145ms | 27ms | 15ms | 14ms |
-| PHP function (BREF_LOOP_MAP) |       |      |  1ms |  1ms |
+| PHP function (BREF_LOOP_MAX) |       |      |  1ms |  1ms |
 | HTTP application             |   1ms |  1ms |  1ms |  1ms |
 | Laravel                      |       |      |  9ms |      |
 
-([`BREF_LOOP_MAP` docs](https://bref.sh/docs/environment/performances.html#bref-for-event-driven-functions))
+([`BREF_LOOP_MAX` docs](https://bref.sh/docs/environment/performances.html#bref-for-event-driven-functions))
 
 ### Bref 2.x (PHP 8.2)
 
 | Memory                       |   128 |  512 | 1024 | 1769 |
 |------------------------------|------:|-----:|-----:|-----:|
 | PHP function                 | 135ms | 25ms | 14ms | 14ms |
-| PHP function (BREF_LOOP_MAP) |       |      |  1ms |  1ms |
+| PHP function (BREF_LOOP_MAX) |       |      |  1ms |  1ms |
 | HTTP application             |   1ms |  1ms |  1ms |  1ms |
 | Laravel                      |       |      |  8ms |      |
 
@@ -36,7 +36,7 @@ Number of samples: 900
 | Memory                       |   128 |  512 | 1024 | 1769 |
 |------------------------------|------:|-----:|-----:|-----:|
 | PHP function                 | 135ms | 26ms | 14ms | 14ms |
-| PHP function (BREF_LOOP_MAP) |       |      |  1ms |  1ms |
+| PHP function (BREF_LOOP_MAX) |       |      |  1ms |  1ms |
 | HTTP application             |   1ms |  1ms |  1ms |  1ms |
 | Laravel                      |       |      |  9ms |      |
 
