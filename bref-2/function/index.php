@@ -2,7 +2,6 @@
 
 require __DIR__.'/vendor/autoload.php';
 
-
 return function () {
     return 'Hello world';
 };

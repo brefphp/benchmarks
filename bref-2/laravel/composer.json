@@ -6,8 +6,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
-        "bref/bref": "^2.0@beta",
-        "bref/laravel-bridge": "^1.2.3",
+        "bref/bref": "^2.0",
+        "bref/laravel-bridge": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
