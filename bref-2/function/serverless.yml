@@ -9,6 +9,10 @@ provider:
     logs:
         httpApi:
             format: '{ "requestId": "$context.requestId", "routeKey": "$context.routeKey", "requestTime": "$context.requestTime", "integrationLatency": "$context.integrationLatency" }'
+    ecr:
+        images:
+            function:
+                path: ./
 
 plugins:
     - ./vendor/bref/bref
@@ -51,3 +55,8 @@ functions:
         memorySize: 1769
         architecture: arm64
         runtime: php-83
+
+    1024-container:
+        image:
+            name: function
+        memorySize: 1024

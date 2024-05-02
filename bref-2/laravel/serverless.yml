@@ -13,6 +13,10 @@ provider:
     logs:
         httpApi:
             format: '{ "requestId": "$context.requestId", "routeKey": "$context.routeKey", "requestTime": "$context.requestTime", "integrationLatency": "$context.integrationLatency" }'
+    ecr:
+        images:
+            laravel:
+                path: ./
 
 plugins:
     - ./vendor/bref/bref
@@ -32,6 +36,13 @@ functions:
         runtime: php-83-fpm
         events:
             -   httpApi: 'GET /1024-arm'
+
+    1024-container:
+        image:
+            name: laravel
+        memorySize: 1024
+        events:
+            -   httpApi: 'GET /1024-container'
 
 package:
     patterns:

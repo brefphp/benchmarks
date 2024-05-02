@@ -17,5 +17,7 @@ setup:
 	cd bref-2/function && composer update --no-dev --classmap-authoritative
 	cd bref-2/fpm && composer update --no-dev --classmap-authoritative
 	cd bref-2/laravel && composer update --no-dev --classmap-authoritative && php artisan config:clear && php artisan route:cache
+	docker pull bref/php-83:2
+	docker pull bref/php-83-fpm:2
 
 .PHONY: setup

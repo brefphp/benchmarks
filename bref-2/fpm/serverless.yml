@@ -9,6 +9,10 @@ provider:
     logs:
         httpApi:
             format: '{ "requestId": "$context.requestId", "routeKey": "$context.routeKey", "requestTime": "$context.requestTime", "integrationLatency": "$context.integrationLatency" }'
+    ecr:
+        images:
+            fpm:
+                path: ./
 
 plugins:
     - ./vendor/bref/bref
@@ -67,3 +71,10 @@ functions:
         runtime: php-83-fpm
         events:
             -   httpApi: 'GET /1769-arm'
+
+    1024-container:
+        image:
+            name: fpm
+        memorySize: 1024
+        events:
+            -   httpApi: 'GET /1024-container'

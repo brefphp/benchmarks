@@ -49,6 +49,37 @@ High level learnings:
 
 - Don't use less than 512M of memory
 - Cold starts are not faster on ARM, they are same or slightly slower
+- Containers have the fastest cold starts
+- When using containers, you need to warm up the first requests following a deployment
+
+Comparison (1024M):
+
+|                    | x86 container | x86 layer | ARM layer |
+|--------------------|--------------:|----------:|----------:|
+| HTTP (duration)    |         180ms |     300ms |     300ms |
+| HTTP (latency)     |         350ms |     540ms |     530ms |
+| Laravel (duration) |         850ms |    1190ms |    1160ms |
+| Function           |         160ms |     230ms |     220ms |
+
+### Bref 2.x containers (PHP 8.3)
+
+Note: the first cold starts are much slower (see https://aaronstuyvenberg.com/posts/containers-on-lambda), e.g. 5s, because the container cache is warming up. In production warm up Lambda after deploying.
+
+Function duration:
+
+| Memory           |  1024 |
+|------------------|------:|
+| PHP function     | 160ms |
+| HTTP application | 180ms |
+| Laravel          | 850ms |
+
+Total latency (measured from API Gateway or X-Ray):
+
+| Memory           |  1024 |
+|------------------|------:|
+| PHP function     |       |
+| HTTP application | 350ms |
+| Laravel          |       |
 
 ### Bref 2.x (PHP 8.3)
 
