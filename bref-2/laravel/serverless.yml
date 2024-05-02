@@ -3,8 +3,16 @@ service: bref2-bench-laravel
 provider:
     name: aws
     region: us-east-2
-    runtime: provided.al2
-    deploymentMethod: direct
+    versionFunctions: false
+    environment:
+        APP_ENV: production
+        APP_KEY: 'base64:E+encJrg6dTOlxvvwmI081w7fiESSe8uljgzcOeU2HM='
+        SESSION_DRIVER: cookie
+    tracing:
+        lambda: true
+    logs:
+        httpApi:
+            format: '{ "requestId": "$context.requestId", "routeKey": "$context.routeKey", "requestTime": "$context.requestTime", "integrationLatency": "$context.integrationLatency" }'
 
 plugins:
     - ./vendor/bref/bref
@@ -13,8 +21,7 @@ functions:
     1024:
         handler: public/index.php
         memorySize: 1024
-        layers:
-            - ${bref:layer.php-82-fpm}
+        runtime: php-83-fpm
         events:
             -   httpApi: 'GET /1024'
 
@@ -22,8 +29,7 @@ functions:
         handler: public/index.php
         memorySize: 1024
         architecture: arm64
-        layers:
-            - ${bref:layer.arm-php-82-fpm}
+        runtime: php-83-fpm
         events:
             -   httpApi: 'GET /1024-arm'
 
@@ -35,3 +41,4 @@ package:
         - '!resources/js/**'
         - '!storage/**'
         - '!tests/**'
+        - '!.env'

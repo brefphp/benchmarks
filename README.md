@@ -11,18 +11,7 @@ Average execution time for a lambda that doesn't do anything.
 
 Number of samples: 900
 
-### Bref 1.x (PHP 8.1)
-
-| Memory                       |   128 |  512 | 1024 | 1769 |
-|------------------------------|------:|-----:|-----:|-----:|
-| PHP function                 | 145ms | 27ms | 15ms | 14ms |
-| PHP function (BREF_LOOP_MAX) |       |      |  1ms |  1ms |
-| HTTP application             |   1ms |  1ms |  1ms |  1ms |
-| Laravel                      |       |      |  9ms |      |
-
-([`BREF_LOOP_MAX` docs](https://bref.sh/docs/environment/performances.html#bref-for-event-driven-functions))
-
-### Bref 2.x (PHP 8.2)
+### Bref 2.x (PHP 8.3)
 
 | Memory                       |   128 |  512 | 1024 | 1769 |
 |------------------------------|------:|-----:|-----:|-----:|
@@ -31,7 +20,7 @@ Number of samples: 900
 | HTTP application             |   1ms |  1ms |  1ms |  1ms |
 | Laravel                      |       |      |  7ms |      |
 
-### Bref 2.x ARM (PHP 8.2)
+### Bref 2.x ARM (PHP 8.3)
 
 | Memory                       |   128 |  512 | 1024 | 1769 |
 |------------------------------|------:|-----:|-----:|-----:|
@@ -56,29 +45,46 @@ For comparison  `bench.php` runs in 1.3s on a 512M Digital Ocean droplet, in 0.8
 
 Number of samples: 20
 
-### Bref 1.x (PHP 8.1)
+High level learnings:
 
-| Memory           |   128 |   512 |  1024 |  1769 |
-|------------------|------:|------:|------:|------:|
-| PHP function     | 420ms | 250ms | 230ms | 228ms |
-| HTTP application | 420ms | 330ms | 310ms | 310ms |
-| Laravel          |       |       | 920ms |       |
+- Don't use less than 512M of memory
+- Cold starts are not faster on ARM, they are same or slightly slower
 
-### Bref 2.x (PHP 8.2)
+### Bref 2.x (PHP 8.3)
 
-| Memory           |   128 |   512 |   1024 |  1769 |
-|------------------|------:|------:|-------:|------:|
-| PHP function     | 450ms | 265ms |  230ms | 225ms |
-| HTTP application | 450ms | 330ms |  315ms | 315ms |
-| Laravel          |       |       | 1000ms |       |
-
-### Bref 2.x ARM (PHP 8.2)
+Function duration:
 
 | Memory           |   128 |   512 |   1024 |  1769 |
 |------------------|------:|------:|-------:|------:|
-| PHP function     | 450ms | 250ms |  220ms | 220ms |
-| HTTP application | 425ms | 315ms |  310ms | 310ms |
-| Laravel          |       |       | 1000ms |       |
+| PHP function     | 500ms | 260ms |  230ms | 230ms |
+| HTTP application | 430ms | 330ms |  300ms | 310ms |
+| Laravel          |       |       | 1190ms |       |
+
+Total latency (measured from API Gateway or X-Ray):
+
+| Memory           |   128 |   512 |   1024 |  1769 |
+|------------------|------:|------:|-------:|------:|
+| PHP function     | 700ms | 430ms |  440ms | 410ms |
+| HTTP application | 580ms | 450ms |  460ms | 450ms |
+| Laravel          |       |       | 1400ms |       |
+
+### Bref 2.x ARM (PHP 8.3)
+
+Function duration:
+
+| Memory           |   128 |   512 |   1024 |  1769 |
+|------------------|------:|------:|-------:|------:|
+| PHP function     | 450ms | 240ms |  220ms | 210ms |
+| HTTP application | 410ms | 310ms |  300ms | 300ms |
+| Laravel          |       |       | 1160ms |       |
+
+Total latency (measured from API Gateway or X-Ray):
+
+| Memory           |   128 |   512 |   1024 |  1769 |
+|------------------|------:|------:|-------:|------:|
+| PHP function     | 670ms | 470ms |  430ms | 430ms |
+| HTTP application | 620ms | 510ms |  540ms | 510ms |
+| Laravel          |       |       | 1460ms |       |
 
 Measuring cold starts in CloudWatch Logs Insights:
 
