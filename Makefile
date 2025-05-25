@@ -1,22 +1,27 @@
 # Deploy all the lambdas
-deploy:
-	cd bref-2 && serverless deploy && serverless info
+deploy: deploy-function deploy-fpm deploy-laravel
+deploy-function:
+	cd function && serverless deploy && serverless info
+deploy-fpm:
+	cd fpm && serverless deploy && serverless info
+deploy-laravel:
+	cd laravel && serverless deploy && serverless info
 
-bench-cold-starts-2:
-	./benchmark-2-coldstarts.sh
-bench-function-2:
-	./benchmark-2-function.sh
-bench-http-2:
-	./benchmark-2-http.sh
+bench-cold-starts:
+	./benchmark-coldstarts.sh
+bench-function:
+	./benchmark-function.sh
+bench-http:
+	./benchmark-http.sh
 
 bench-phpbench:
 	./benchmark-phpbench.sh
 
 # Set things up
 setup:
-	cd bref-2/function && composer update --no-dev --classmap-authoritative
-	cd bref-2/fpm && composer update --no-dev --classmap-authoritative
-	cd bref-2/laravel && composer update --no-dev --classmap-authoritative && php artisan config:clear && php artisan route:cache
+	cd function && composer update --no-dev --classmap-authoritative
+	cd fpm && composer update --no-dev --classmap-authoritative
+	cd laravel && composer update --no-dev --classmap-authoritative && php artisan config:clear && php artisan route:cache
 	docker pull bref/php-83:2
 	docker pull bref/php-83-fpm:2
 
