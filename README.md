@@ -120,7 +120,7 @@ Total latency (measured from API Gateway or X-Ray):
 Measuring cold starts in CloudWatch Logs Insights:
 
 ```
-filter @type = “REPORT” and @initDuration
+filter @type = “REPORT” and @initDuration > 0
 | stats
  count(@type) as count,
  min(@billedDuration) as min,
