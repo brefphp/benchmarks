@@ -14,9 +14,6 @@ bench-function:
 bench-http:
 	./benchmark-http.sh
 
-bench-phpbench:
-	./benchmark-phpbench.sh
-
 # Set things up
 setup:
 	cd function && composer update --no-dev --classmap-authoritative
