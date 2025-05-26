@@ -1,4 +1,4 @@
-FROM bref/php-83-fpm:2
+FROM bref/php-83-fpm:3
 
 COPY . /var/task
 
