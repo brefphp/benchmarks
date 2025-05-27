@@ -48,8 +48,8 @@ package:
     patterns:
         - '!node_modules/**'
         - '!public/storage'
+        - '!database/*.sqlite'
         - '!resources/css/**'
         - '!resources/js/**'
         - '!storage/**'
         - '!tests/**'
-        - '!.env'

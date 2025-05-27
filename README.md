@@ -89,7 +89,7 @@ Function duration:
 |------------------|------:|------:|-------:|------:|
 | PHP function     | 530ms | 290ms |  260ms | 250ms |
 | HTTP application | 500ms | 365ms |  340ms | 340ms |
-| Laravel          |       |       | 1285ms |       |
+| Laravel          |       |       | 1060ms |       |
 
 Total latency (measured from API Gateway or X-Ray):
 
@@ -97,7 +97,7 @@ Total latency (measured from API Gateway or X-Ray):
 |------------------|------:|------:|-------:|------:|
 | PHP function     | 700ms | 430ms |  440ms | 410ms |
 | HTTP application | 800ms | 640ms |  580ms | 640ms |
-| Laravel          |       |       | 1510ms |       |
+| Laravel          |       |       | 1640ms |       |
 
 ### Bref 2.x ARM (PHP 8.3)
 
@@ -107,7 +107,7 @@ Function duration:
 |------------------|------:|------:|-------:|------:|
 | PHP function     | 480ms | 260ms |  235ms | 230ms |
 | HTTP application | 430ms | 320ms |  315ms | 310ms |
-| Laravel          |       |       | 1220ms |       |
+| Laravel          |       |       | 1040ms |       |
 
 Total latency (measured from API Gateway or X-Ray):
 
@@ -115,7 +115,7 @@ Total latency (measured from API Gateway or X-Ray):
 |------------------|------:|------:|-------:|------:|
 | PHP function     | 670ms | 470ms |  430ms | 430ms |
 | HTTP application | 670ms | 630ms |  650ms | 570ms |
-| Laravel          |       |       | 1500ms |       |
+| Laravel          |       |       | 1530ms |       |
 
 Measuring cold starts in CloudWatch Logs Insights:
 
