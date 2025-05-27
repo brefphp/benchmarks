@@ -19,7 +19,6 @@ setup:
 	cd function && composer update --no-dev --classmap-authoritative
 	cd fpm && composer update --no-dev --classmap-authoritative
 	cd laravel && composer update --no-dev --classmap-authoritative && php artisan config:clear && php artisan route:cache
-	docker pull bref/php-83:2
-	docker pull bref/php-83-fpm:2
+	docker pull bref/php-83:3
 
 .PHONY: setup

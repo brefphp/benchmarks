@@ -58,7 +58,7 @@ Comparison (1024M):
 |--------------------|--------------:|----------:|----------:|
 | HTTP (duration)    |         190ms |     355ms |     325ms |
 | HTTP (latency)     |         370ms |     600ms |     600ms |
-| Laravel (duration) |         850ms |    1190ms |    1160ms |
+| Laravel (duration) |         850ms |    1260ms |    1210ms |
 | Function           |         175ms |     270ms |     235ms |
 
 ### Bref 3.x containers (PHP 8.3)
@@ -89,7 +89,7 @@ Function duration:
 |------------------|------:|------:|-------:|------:|
 | PHP function     | 520ms | 300ms |  270ms | 250ms |
 | HTTP application | 590ms | 380ms |  355ms | 350ms |
-| Laravel          |       |       | 1190ms |       |
+| Laravel          |       |       | 1260ms |       |
 
 Total latency (measured from API Gateway or X-Ray):
 
@@ -97,7 +97,7 @@ Total latency (measured from API Gateway or X-Ray):
 |------------------|------:|------:|-------:|------:|
 | PHP function     | 700ms | 430ms |  440ms | 410ms |
 | HTTP application | 800ms | 600ms |  600ms | 600ms |
-| Laravel          |       |       | 1400ms |       |
+| Laravel          |       |       | 1520ms |       |
 
 ### Bref 3.x ARM (PHP 8.3)
 
@@ -107,7 +107,7 @@ Function duration:
 |------------------|------:|------:|-------:|------:|
 | PHP function     | 490ms | 255ms |  235ms | 230ms |
 | HTTP application | 520ms | 340ms |  325ms | 320ms |
-| Laravel          |       |       | 1160ms |       |
+| Laravel          |       |       | 1210ms |       |
 
 Total latency (measured from API Gateway or X-Ray):
 
@@ -115,7 +115,7 @@ Total latency (measured from API Gateway or X-Ray):
 |------------------|------:|------:|-------:|------:|
 | PHP function     | 670ms | 470ms |  430ms | 430ms |
 | HTTP application | 730ms | 600ms |  600ms | 600ms |
-| Laravel          |       |       | 1460ms |       |
+| Laravel          |       |       | 1510ms |       |
 
 Measuring cold starts in CloudWatch Logs Insights:
 
