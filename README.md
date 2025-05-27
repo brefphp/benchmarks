@@ -18,7 +18,7 @@ Number of samples: 900
 | PHP function                 | 170ms | 32ms | 16ms | 16ms |
 | PHP function (BREF_LOOP_MAX) |       |      |  1ms |  1ms |
 | HTTP application             |   2ms |  2ms |  2ms |  2ms |
-| Laravel                      |       |      | 28ms |      |
+| Laravel                      |       |      | 10ms |      |
 
 ### Bref 3.x ARM (PHP 8.3)
 
@@ -27,9 +27,9 @@ Number of samples: 900
 | PHP function                 | 160ms | 16ms | 15ms | 15ms |
 | PHP function (BREF_LOOP_MAX) |       |      |  1ms |  1ms |
 | HTTP application             |   2ms |  2ms |  2ms |  2ms |
-| Laravel                      |       |      | 44ms |      |
+| Laravel                      |       |      | 11ms |      |
 
-For comparison on a 512M Digital Ocean droplet we get 1ms for "HTTP application" and 6ms for Symfony.
+These results are comparable to an HTTP application served using a classic server.
 
 ## CPU performance
 
