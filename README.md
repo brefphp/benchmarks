@@ -15,19 +15,19 @@ Number of samples: 900
 
 | Memory                       |   128 |  512 | 1024 | 1769 |
 |------------------------------|------:|-----:|-----:|-----:|
-| PHP function                 | 200ms | 34ms | 16ms | 16ms |
+| PHP function                 | 170ms | 32ms | 16ms | 16ms |
 | PHP function (BREF_LOOP_MAX) |       |      |  1ms |  1ms |
 | HTTP application             |   2ms |  2ms |  2ms |  2ms |
-| Laravel                      |       |      |  7ms |      |
+| Laravel                      |       |      | 28ms |      |
 
 ### Bref 3.x ARM (PHP 8.3)
 
 | Memory                       |   128 |  512 | 1024 | 1769 |
 |------------------------------|------:|-----:|-----:|-----:|
-| PHP function                 | 170ms | 30ms | 16ms | 16ms |
+| PHP function                 | 160ms | 16ms | 15ms | 15ms |
 | PHP function (BREF_LOOP_MAX) |       |      |  1ms |  1ms |
 | HTTP application             |   2ms |  2ms |  2ms |  2ms |
-| Laravel                      |       |      |  8ms |      |
+| Laravel                      |       |      | 44ms |      |
 
 For comparison on a 512M Digital Ocean droplet we get 1ms for "HTTP application" and 6ms for Symfony.
 
@@ -56,10 +56,10 @@ Comparison (1024M):
 
 |                    | x86 container | x86 layer | ARM layer |
 |--------------------|--------------:|----------:|----------:|
-| HTTP (duration)    |         190ms |     355ms |     325ms |
-| HTTP (latency)     |         370ms |     600ms |     600ms |
-| Laravel (duration) |         850ms |    1260ms |    1210ms |
-| Function           |         175ms |     270ms |     235ms |
+| HTTP (duration)    |         190ms |     300ms |     280ms |
+| HTTP (latency)     |         370ms |     520ms |     520ms |
+| Laravel (duration) |         850ms |    1250ms |    1210ms |
+| Function           |         175ms |     230ms |     200ms |
 
 ### Bref 3.x containers (PHP 8.3)
 
@@ -69,17 +69,17 @@ Function duration:
 
 | Memory           |  1024 |
 |------------------|------:|
-| PHP function     | 175ms |
-| HTTP application | 190ms |
-| Laravel          | 850ms |
+| PHP function     | 145ms |
+| HTTP application | 180ms |
+| Laravel          | 960ms |
 
 Total latency (measured from API Gateway or X-Ray):
 
-| Memory           |  1024 |
-|------------------|------:|
-| PHP function     |       |
-| HTTP application | 370ms |
-| Laravel          |       |
+| Memory           |   1024 |
+|------------------|-------:|
+| PHP function     |        |
+| HTTP application |  340ms |
+| Laravel          | 1110ms |
 
 ### Bref 3.x (PHP 8.3)
 
@@ -87,17 +87,17 @@ Function duration:
 
 | Memory           |   128 |   512 |   1024 |  1769 |
 |------------------|------:|------:|-------:|------:|
-| PHP function     | 520ms | 300ms |  270ms | 250ms |
-| HTTP application | 590ms | 380ms |  355ms | 350ms |
-| Laravel          |       |       | 1260ms |       |
+| PHP function     | 480ms | 260ms |  230ms | 220ms |
+| HTTP application | 480ms | 335ms |  305ms | 300ms |
+| Laravel          |       |       | 1250ms |       |
 
 Total latency (measured from API Gateway or X-Ray):
 
 | Memory           |   128 |   512 |   1024 |  1769 |
 |------------------|------:|------:|-------:|------:|
 | PHP function     | 700ms | 430ms |  440ms | 410ms |
-| HTTP application | 800ms | 600ms |  600ms | 600ms |
-| Laravel          |       |       | 1520ms |       |
+| HTTP application | 660ms | 525ms |  475ms | 535ms |
+| Laravel          |       |       | 1480ms |       |
 
 ### Bref 3.x ARM (PHP 8.3)
 
@@ -105,8 +105,8 @@ Function duration:
 
 | Memory           |   128 |   512 |   1024 |  1769 |
 |------------------|------:|------:|-------:|------:|
-| PHP function     | 490ms | 255ms |  235ms | 230ms |
-| HTTP application | 520ms | 340ms |  325ms | 320ms |
+| PHP function     | 410ms | 215ms |  200ms | 195ms |
+| HTTP application | 450ms | 300ms |  280ms | 275ms |
 | Laravel          |       |       | 1210ms |       |
 
 Total latency (measured from API Gateway or X-Ray):
@@ -114,8 +114,8 @@ Total latency (measured from API Gateway or X-Ray):
 | Memory           |   128 |   512 |   1024 |  1769 |
 |------------------|------:|------:|-------:|------:|
 | PHP function     | 670ms | 470ms |  430ms | 430ms |
-| HTTP application | 730ms | 600ms |  600ms | 600ms |
-| Laravel          |       |       | 1510ms |       |
+| HTTP application | 670ms | 550ms |  520ms | 530ms |
+| Laravel          |       |       | 1500ms |       |
 
 Measuring cold starts in CloudWatch Logs Insights:
 
