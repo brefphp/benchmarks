@@ -28,6 +28,11 @@ functions:
         runtime: php-83-fpm
         events:
             -   httpApi: 'GET /1024'
+            # Invoke every hour to trigger cold starts
+            -   schedule:
+                    rate: rate(1 hour)
+                    input:
+                        warmer: true
 
     1024-arm:
         handler: public/index.php
@@ -36,6 +41,11 @@ functions:
         runtime: php-83-fpm
         events:
             -   httpApi: 'GET /1024-arm'
+            # Invoke every hour to trigger cold starts
+            -   schedule:
+                    rate: rate(1 hour)
+                    input:
+                        warmer: true
 
     1024-container:
         image:
@@ -43,13 +53,18 @@ functions:
         memorySize: 1024
         events:
             -   httpApi: 'GET /1024-container'
+            # Invoke every hour to trigger cold starts
+            -   schedule:
+                    rate: rate(1 hour)
+                    input:
+                        warmer: true
 
 package:
     patterns:
         - '!node_modules/**'
         - '!public/storage'
+        - '!database/*.sqlite'
         - '!resources/css/**'
         - '!resources/js/**'
         - '!storage/**'
         - '!tests/**'
-        - '!.env'
