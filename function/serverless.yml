@@ -22,41 +22,77 @@ functions:
         handler: index.php
         memorySize: 128
         runtime: php-83
+        events:
+            # Invoke every hour to trigger cold starts
+            -   schedule:
+                    rate: rate(1 hour)
     512:
         handler: index.php
         memorySize: 512
         runtime: php-83
+        events:
+            # Invoke every hour to trigger cold starts
+            -   schedule:
+                    rate: rate(1 hour)
     1024:
         handler: index.php
         memorySize: 1024
         runtime: php-83
+        events:
+            # Invoke every hour to trigger cold starts
+            -   schedule:
+                    rate: rate(1 hour)
     1769:
         handler: index.php
         memorySize: 1769
         runtime: php-83
+        events:
+            # Invoke every hour to trigger cold starts
+            -   schedule:
+                    rate: rate(1 hour)
 
     128-arm:
         handler: index.php
         memorySize: 128
         architecture: arm64
         runtime: php-83
+        events:
+            # Invoke every hour to trigger cold starts
+            -   schedule:
+                    rate: rate(1 hour)
     512-arm:
         handler: index.php
         memorySize: 512
         architecture: arm64
         runtime: php-83
+        events:
+            # Invoke every hour to trigger cold starts
+            -   schedule:
+                    rate: rate(1 hour)
     1024-arm:
         handler: index.php
         memorySize: 1024
         architecture: arm64
         runtime: php-83
+        events:
+            # Invoke every hour to trigger cold starts
+            -   schedule:
+                    rate: rate(1 hour)
     1769-arm:
         handler: index.php
         memorySize: 1769
         architecture: arm64
         runtime: php-83
+        events:
+            # Invoke every hour to trigger cold starts
+            -   schedule:
+                    rate: rate(1 hour)
 
     1024-container:
         image:
             name: function
         memorySize: 1024
+        events:
+            # Invoke every hour to trigger cold starts
+            -   schedule:
+                    rate: rate(1 hour)
