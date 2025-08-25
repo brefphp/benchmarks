@@ -15,19 +15,19 @@ Number of samples: 900
 
 | Memory                       |   128 |  512 | 1024 | 1769 |
 |------------------------------|------:|-----:|-----:|-----:|
-| PHP function                 | 170ms | 32ms | 16ms | 16ms |
+| PHP function                 | 220ms | 43ms | 21ms | 19ms |
 | PHP function (BREF_LOOP_MAX) |       |      |  1ms |  1ms |
 | HTTP application             |   2ms |  2ms |  2ms |  2ms |
-| Laravel                      |       |      | 10ms |      |
+| Laravel                      |       |      |  9ms |      |
 
 ### Bref 3.x ARM (PHP 8.3)
 
 | Memory                       |   128 |  512 | 1024 | 1769 |
 |------------------------------|------:|-----:|-----:|-----:|
-| PHP function                 | 160ms | 16ms | 15ms | 15ms |
+| PHP function                 | 170ms | 30ms | 19ms | 19ms |
 | PHP function (BREF_LOOP_MAX) |       |      |  1ms |  1ms |
 | HTTP application             |   2ms |  2ms |  2ms |  2ms |
-| Laravel                      |       |      | 11ms |      |
+| Laravel                      |       |      | 10ms |      |
 
 These results are comparable to an HTTP application served using a classic server.
 
@@ -87,9 +87,9 @@ Function duration:
 
 | Memory           |   128 |   512 |   1024 |  1769 |
 |------------------|------:|------:|-------:|------:|
-| PHP function     | 480ms | 260ms |  230ms | 220ms |
-| HTTP application | 480ms | 335ms |  305ms | 300ms |
-| Laravel          |       |       | 1250ms |       |
+| PHP function     | 480ms | 240ms |  195ms | 190ms |
+| HTTP application | 430ms | 280ms |  270ms | 270ms |
+| Laravel          |       |       | 1300ms |       |
 
 Total latency (measured from API Gateway or X-Ray):
 
@@ -105,9 +105,9 @@ Function duration:
 
 | Memory           |   128 |   512 |   1024 |  1769 |
 |------------------|------:|------:|-------:|------:|
-| PHP function     | 410ms | 215ms |  200ms | 195ms |
-| HTTP application | 450ms | 300ms |  280ms | 275ms |
-| Laravel          |       |       | 1210ms |       |
+| PHP function     | 380ms | 210ms |  170ms | 165ms |
+| HTTP application | 410ms | 270ms |  240ms | 240ms |
+| Laravel          |       |       | 1225ms |       |
 
 Total latency (measured from API Gateway or X-Ray):
 
