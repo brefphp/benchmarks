@@ -58,7 +58,7 @@ Comparison (1024M):
 |--------------------|--------------:|----------:|----------:|
 | HTTP (duration)    |         200ms |     270ms |     240ms |
 | HTTP (latency)     |         360ms |     520ms |     520ms |
-| Laravel (duration) |         990ms |    1280ms |    1230ms |
+| Laravel (duration) |         800ms |    1020ms |    1020ms |
 | Function           |         160ms |     195ms |     170ms |
 
 ### Bref 3.x containers (PHP 8.3)
@@ -71,7 +71,7 @@ Function duration:
 |------------------|------:|
 | PHP function     | 160ms |
 | HTTP application | 200ms |
-| Laravel          | 990ms |
+| Laravel          | 800ms |
 
 Total latency (measured from API Gateway or X-Ray):
 
@@ -89,7 +89,7 @@ Function duration:
 |------------------|------:|------:|-------:|------:|
 | PHP function     | 470ms | 240ms |  195ms | 190ms |
 | HTTP application | 430ms | 280ms |  270ms | 270ms |
-| Laravel          |       |       | 1280ms |       |
+| Laravel          |       |       | 1020ms |       |
 
 Total latency (measured from API Gateway or X-Ray):
 
@@ -107,7 +107,7 @@ Function duration:
 |------------------|------:|------:|-------:|------:|
 | PHP function     | 380ms | 210ms |  170ms | 165ms |
 | HTTP application | 410ms | 270ms |  240ms | 240ms |
-| Laravel          |       |       | 1230ms |       |
+| Laravel          |       |       | 1020ms |       |
 
 Total latency (measured from API Gateway or X-Ray):
 
