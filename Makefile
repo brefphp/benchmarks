@@ -21,8 +21,7 @@ setup:
 	cd laravel && composer update --no-dev --classmap-authoritative \
 		&& php artisan config:clear \
 		&& rm -f .env && cp .env.production .env \
-		&& docker run --rm -it -v $$PWD:/var/task --entrypoint php bref/php-83:2 artisan optimize
-	docker pull bref/php-83:2
-	docker pull bref/php-83-fpm:2
+		&& php artisan route:cache
+	docker pull bref/php-83:3
 
 .PHONY: setup
