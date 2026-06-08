@@ -1,6 +1,6 @@
 {
     "require": {
-        "bref/bref": "^2.0"
+        "bref/bref": "v3.x-dev"
     },
     "config": {
         "platform": {

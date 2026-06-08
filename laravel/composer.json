@@ -5,8 +5,8 @@
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
-        "bref/bref": "^2.1",
+        "php": "^8.3",
+        "bref/bref": "v3.x-dev as 2.99.0",
         "bref/laravel-bridge": "^2.3",
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.9"

@@ -11,25 +11,25 @@ Average execution time for a lambda that doesn't do anything.
 
 Number of samples: 900
 
-### Bref 2.x (PHP 8.3)
+### Bref 3.x (PHP 8.3)
 
 | Memory                       |   128 |  512 | 1024 | 1769 |
 |------------------------------|------:|-----:|-----:|-----:|
-| PHP function                 | 200ms | 35ms | 19ms | 17ms |
+| PHP function                 | 220ms | 43ms | 21ms | 19ms |
 | PHP function (BREF_LOOP_MAX) |       |      |  1ms |  1ms |
 | HTTP application             |   2ms |  2ms |  2ms |  2ms |
 | Laravel                      |       |      |  9ms |      |
 
-### Bref 2.x ARM (PHP 8.3)
+### Bref 3.x ARM (PHP 8.3)
 
 | Memory                       |   128 |  512 | 1024 | 1769 |
 |------------------------------|------:|-----:|-----:|-----:|
-| PHP function                 | 170ms | 27ms | 17ms | 17ms |
+| PHP function                 | 170ms | 30ms | 19ms | 19ms |
 | PHP function (BREF_LOOP_MAX) |       |      |  1ms |  1ms |
 | HTTP application             |   2ms |  2ms |  2ms |  2ms |
 | Laravel                      |       |      | 10ms |      |
 
-For comparison on a 512M Digital Ocean droplet we get 1ms for "HTTP application" and 6ms for Symfony.
+These results are comparable to an HTTP application served using a classic server.
 
 ## CPU performance
 
@@ -56,12 +56,12 @@ Comparison (1024M):
 
 |                    | x86 container | x86 layer | ARM layer |
 |--------------------|--------------:|----------:|----------:|
-| HTTP (duration)    |         180ms |     340ms |     315ms |
-| HTTP (latency)     |         350ms |     580ms |     630ms |
-| Laravel (duration) |         850ms |    1510ms |    1220ms |
-| Function           |         160ms |     260ms |     235ms |
+| HTTP (duration)    |         200ms |     270ms |     240ms |
+| HTTP (latency)     |         360ms |     520ms |     520ms |
+| Laravel (duration) |         800ms |    1020ms |    1020ms |
+| Function           |         160ms |     195ms |     170ms |
 
-### Bref 2.x containers (PHP 8.3)
+### Bref 3.x containers (PHP 8.3)
 
 Note: the first cold starts are much slower (see https://aaronstuyvenberg.com/posts/containers-on-lambda), e.g. 5s, because the container cache is warming up. In production warm up Lambda after deploying.
 
@@ -70,64 +70,64 @@ Function duration:
 | Memory           |  1024 |
 |------------------|------:|
 | PHP function     | 160ms |
-| HTTP application | 180ms |
-| Laravel          | 850ms |
+| HTTP application | 200ms |
+| Laravel          | 800ms |
 
 Total latency (measured from API Gateway or X-Ray):
 
-| Memory           |  1024 |
-|------------------|------:|
-| PHP function     |       |
-| HTTP application | 350ms |
-| Laravel          |       |
+| Memory           |   1024 |
+|------------------|-------:|
+| PHP function     |        |
+| HTTP application |  360ms |
+| Laravel          | 1190ms |
 
-### Bref 2.x (PHP 8.3)
+### Bref 3.x (PHP 8.3)
 
 Function duration:
 
 | Memory           |   128 |   512 |   1024 |  1769 |
 |------------------|------:|------:|-------:|------:|
-| PHP function     | 530ms | 290ms |  260ms | 250ms |
-| HTTP application | 500ms | 365ms |  340ms | 340ms |
-| Laravel          |       |       | 1060ms |       |
+| PHP function     | 470ms | 240ms |  195ms | 190ms |
+| HTTP application | 430ms | 280ms |  270ms | 270ms |
+| Laravel          |       |       | 1020ms |       |
 
 Total latency (measured from API Gateway or X-Ray):
 
 | Memory           |   128 |   512 |   1024 |  1769 |
 |------------------|------:|------:|-------:|------:|
 | PHP function     | 700ms | 430ms |  440ms | 410ms |
-| HTTP application | 800ms | 640ms |  580ms | 640ms |
-| Laravel          |       |       | 1640ms |       |
+| HTTP application | 680ms | 650ms |  550ms | 590ms |
+| Laravel          |       |       | 1550ms |       |
 
-### Bref 2.x ARM (PHP 8.3)
+### Bref 3.x ARM (PHP 8.3)
 
 Function duration:
 
 | Memory           |   128 |   512 |   1024 |  1769 |
 |------------------|------:|------:|-------:|------:|
-| PHP function     | 480ms | 260ms |  235ms | 230ms |
-| HTTP application | 430ms | 320ms |  315ms | 310ms |
-| Laravel          |       |       | 1040ms |       |
+| PHP function     | 380ms | 210ms |  170ms | 165ms |
+| HTTP application | 410ms | 270ms |  240ms | 240ms |
+| Laravel          |       |       | 1020ms |       |
 
 Total latency (measured from API Gateway or X-Ray):
 
 | Memory           |   128 |   512 |   1024 |  1769 |
 |------------------|------:|------:|-------:|------:|
 | PHP function     | 670ms | 470ms |  430ms | 430ms |
-| HTTP application | 670ms | 630ms |  650ms | 570ms |
-| Laravel          |       |       | 1530ms |       |
+| HTTP application | 680ms | 550ms |  520ms | 560ms |
+| Laravel          |       |       | 1500ms |       |
 
 Measuring cold starts in CloudWatch Logs Insights:
 
 ```
-filter @type = “REPORT” and @initDuration > 0
+filter @type = “REPORT”
 | stats
  count(@type) as count,
  min(@billedDuration) as min,
  avg(@billedDuration) as avg,
  pct(@billedDuration, 50) as p50,
  max(@billedDuration) as max
-by @log
+by @log, (@initDuration > 0) as coldstart
 | sort @log
 ```
 
